@@ -46,18 +46,36 @@
           最新消息
         </a>
       </div>
-  
+  <div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+  </div>
+  <!-- User NOT logged in -->
+    <ng-template #guest>
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-dark">
+            <button class="button is-dark">
               <strong>註冊</strong>
-            </a>
-            <a class="button is-light">
+            </button>
+            <a class="button is-light" (click)="auth.googleSignin()">
               登錄
             </a>
           </div>
         </div>
       </div>
+    </ng-template>
+    <!-- User logged in -->
+    <ng-template #authenticated>
+      <div *ngIf="auth.user$ | async as user">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <h3>Howdy, {{ user.displayName }}</h3>
+              <img  [src]="user.photoURL">
+              <p>UID: {{ user.uid }}</p>
+              <button (click)="auth.signOut()" class="button is-dark">登出</button>
+            </div>
+          </div>
+      </div>
+    </ng-template>
     </div>
   </nav>

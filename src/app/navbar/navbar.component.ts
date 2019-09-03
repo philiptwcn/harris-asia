@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthService) { }
   @ViewChild('navBurger', {static: true}) navBurger: ElementRef;
   @ViewChild('navMenu', {static: true}) navMenu: ElementRef;
 
