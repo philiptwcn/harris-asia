@@ -6,13 +6,13 @@ export const environment = {
   private: true,
   production: false,
   firebase: {
-    apiKey: 'AIzaSyB61TtCrUYayyLXOuFbcjOSNIyvopjc1ok',
-    authDomain: 'test-88ffc.firebaseapp.com',
-    databaseURL: 'https://test-88ffc.firebaseio.com',
-    projectId: 'test-88ffc',
-    storageBucket: '',
-    messagingSenderId: '563614119008',
-    appId: '1:563614119008:web:1790608f7787d9b4'
+    apiKey: 'AIzaSyClew1rgcKO2gZrvBTCFcQGLHT_N1uTs4s',
+    authDomain: 'test-a2c7c.firebaseapp.com',
+    databaseURL: 'https://test-a2c7c.firebaseio.com',
+    projectId: 'test-a2c7c',
+    storageBucket: 'test-a2c7c.appspot.com',
+    messagingSenderId: '640893180493',
+    appId: '1:640893180493:web:5d05ded8c3248c84'
   }
 };
 

@@ -12,6 +12,7 @@ import { AuthService } from '../services/auth.service';
 export class NavbarComponent implements OnInit {
 
   constructor(public auth: AuthService) { }
+
   @ViewChild('navBurger', {static: true}) navBurger: ElementRef;
   @ViewChild('navMenu', {static: true}) navMenu: ElementRef;
 
