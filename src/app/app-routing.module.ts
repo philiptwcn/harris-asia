@@ -1,8 +1,48 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ProductsComponent } from './products/products.component';
+
+import { FotograficaComponent } from './products/fotografica/fotografica.component';
+
+import { HandbagsComponent } from './handbags/handbags.component';
+import { CrossbodyComponent } from './crossbody/crossbody.component';
+
+import { StoriesComponent } from './stories/stories.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    pathMatch: 'full',
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
+  },
+  {
+    path: 'fotografica',
+    component: FotograficaComponent
+  },
+  {
+    path: 'handbags',
+    component: HandbagsComponent
+  },
+  {
+    path: 'crossbody',
+    component: CrossbodyComponent
+  },
+  {
+    path: 'stories',
+    component: StoriesComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

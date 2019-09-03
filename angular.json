@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "node_modules/bulma/css/bulma.min.css"
             ],
             "scripts": []
           },
@@ -122,8 +123,13 @@
               "devServerTarget": "harris-asia:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "harris-asia"
 }
