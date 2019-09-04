@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 
 import { FotograficaComponent } from './products/fotografica/fotografica.component';
+import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
 
 import { HandbagsComponent } from './handbags/handbags.component';
 import { CrossbodyComponent } from './crossbody/crossbody.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'fotografica',
     component: FotograficaComponent
+  },
+  {
+    path: 'classic-flap',
+    component: ClassicFlapComponent
   },
   {
     path: 'handbags',

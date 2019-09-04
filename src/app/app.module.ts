@@ -20,6 +20,7 @@ import { CrossbodyComponent } from './crossbody/crossbody.component';
 import { ProductsComponent } from './products/products.component';
 import { StoriesComponent } from './stories/stories.component';
 import { FotograficaComponent } from './products/fotografica/fotografica.component';
+import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FotograficaComponent } from './products/fotografica/fotografica.compone
     CrossbodyComponent,
     ProductsComponent,
     StoriesComponent,
-    FotograficaComponent
+    FotograficaComponent,
+    ClassicFlapComponent
   ],
   imports: [
     BrowserModule,
