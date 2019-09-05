@@ -8,6 +8,7 @@
         <img mat-card-image src="{{ product.fields.image[0].fields.file.url }}">
         <mat-card-actions class="u-marginTopAuto">
           <a mat-button [routerLink]="['/products', product.fields.slug]">View details</a>
+          <a mat-button routerLink="/product-detail">View details</a>
         </mat-card-actions>
       </mat-card>
     </li>

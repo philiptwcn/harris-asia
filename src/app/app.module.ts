@@ -50,6 +50,7 @@ import { ContentfulService } from './services/contentful.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,

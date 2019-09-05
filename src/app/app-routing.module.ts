@@ -2,7 +2,9 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 import { FotograficaComponent } from './products/fotografica/fotografica.component';
 import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
@@ -26,6 +28,10 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent
+  },
+  {
+    path: 'product-detail',
+    component: ProductDetailComponent
   },
   {
     path: 'fotografica',
