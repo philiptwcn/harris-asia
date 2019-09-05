@@ -13,6 +13,10 @@ export const environment = {
     storageBucket: 'test-a2c7c.appspot.com',
     messagingSenderId: '640893180493',
     appId: '1:640893180493:web:5d05ded8c3248c84'
+  },
+  contentful: {
+    spaceId: 'jbzzjod2j0qy',
+    token: '0jSwPMj8kb3sWjxmSpnA2KwRlWGI3g96H0lPjj-MGWA'
   }
 };
 
