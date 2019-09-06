@@ -28,7 +28,6 @@ import { StoriesComponent } from './stories/stories.component';
 import { FotograficaComponent } from './products/fotografica/fotografica.component';
 import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { ProductListComponent } from './products/product-list/product-list.component';
 import { ContentfulService } from './services/contentful.service';
 
 @NgModule({
@@ -46,7 +45,6 @@ import { ContentfulService } from './services/contentful.service';
     FotograficaComponent,
     ClassicFlapComponent,
     ProductDetailComponent,
-    ProductListComponent
   ],
   imports: [
     BrowserModule,
