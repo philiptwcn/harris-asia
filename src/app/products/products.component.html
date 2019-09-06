@@ -8,10 +8,10 @@
     <div class="container-fluid has-text-centered">
         <div class="tile is-ancestor">
             <div class="tile is-parent" *ngFor="let product of products">
-                <div class="tile is-child" routerLink="/product-detail">
+                <div class="tile is-child" [routerLink]="['/products', product.fields.slug]">
                     <img src="{{ product.fields.image[0].fields.file.url }}" alt="product image" class="image">
-                    <p class="content is-size-4">{{ product.fields.productName }}</p>
-                    <p class="content is-size-5">Price: {{ product.fields.price }} $</p>
+                    <p class="content is-size-4 is-family-sans-serif">{{ product.fields.productName }}</p>
+                    <p class="content is-size-5 is-family-sans-serif">Price: {{ product.fields.price }} $</p>
                 </div>
             </div>
         </div>
