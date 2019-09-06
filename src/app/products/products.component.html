@@ -8,7 +8,7 @@
     <div class="container-fluid has-text-centered">
         <ul class="container-fluid columns">
             <li *ngFor="let product of products" class="column is-block">
-                <img src="{{ product.fields.image[0].fields.file.url }}" alt="product image" class="image">
+                <img src="{{ product.fields.image[0].fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
                 <p class="content is-size-4 is-family-sans-serif">{{ product.fields.productName }}</p>
                 <p class="content is-size-5 is-family-sans-serif">Price: {{ product.fields.price }} $</p>
             </li>
