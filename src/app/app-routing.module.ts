@@ -30,10 +30,6 @@ const routes: Routes = [
     component: ProductsComponent
   },
   {
-    path: 'product-detail',
-    component: ProductDetailComponent
-  },
-  {
     path: 'products/:slug',
     component: ProductDetailComponent
   },
@@ -60,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
