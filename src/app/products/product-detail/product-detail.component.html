@@ -1,4 +1,4 @@
-<p *ngIf="product">
+<!--<p *ngIf="product">
     <mat-card class="product-card">
       <mat-card-header>
         <mat-card-title>{{ product.fields.productName }}</mat-card-title>
@@ -36,6 +36,28 @@
         </mat-tab-group>
       </mat-card-content>
     </mat-card>
-  </p>
+  </p>-->
 
-<section class="section"></section>
+<section class="section" *ngIf="product">
+  <div class="columns">
+      <div class="column is-5" *ngIf="product.fields.image" label="Image">
+          <div *ngFor="let image of product.fields.image; trackBy: image?.type">
+            <div class="tab-container">
+              <img class="image" src="{{ image.fields.file.url }}">
+              <p>{{ product.fields.image[0].fields.description }}</p>
+            </div>
+          </div>            
+        </div>
+  <div class="column is-5">
+      <div label="Description">
+          <div class="tab-container">
+            <h1 class="content is-size-3-desktop is-family-sans-serif">{{ product.fields.productName }}</h1>            
+            <hr>
+            <p>{{ product.fields.productDescription }}</p>
+            <h2>{{ product.fields.sizetypecolor }} | <strong>Price: {{ product.fields.price }} $</strong></h2>
+            <p>SKU: {{ product.fields.sku || 'SKU not available' }}</p>
+          </div>
+      </div>
+  </div>
+  </div>
+</section>
