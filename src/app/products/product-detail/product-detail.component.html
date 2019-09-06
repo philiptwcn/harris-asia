@@ -8,8 +8,10 @@
         <mat-tab-group>
           <mat-tab *ngIf="product.fields.image" label="Image">
             <div class="tab-container">
-              <img class="u-marginAutoHorizontal" src="{{ product.fields.image[0].fields.file.url }}">
-              <p>{{ product.fields.image[0].fields.description }}</p>
+              <div *ngFor="let image of product.fields.image">
+                <img class="u-marginAutoHorizontal" src="{{ product.fields.image[0].fields.file.url }}">
+                <p>{{ product.fields.image[0].fields.description }}</p>
+              </div>
             </div>
           </mat-tab>
           <mat-tab label="Description">
@@ -35,4 +37,5 @@
       </mat-card-content>
     </mat-card>
   </p>
+
   

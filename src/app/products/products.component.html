@@ -5,12 +5,12 @@
     </div>
 </section>
 <section class="section">
-    <div class="container-fluid has-text-centered">
-        <ul class="container-fluid columns">
-            <li *ngFor="let product of products" class="column is-block">
+    <div class="container has-text-centered">
+        <ul class="container-fluid columns is-multiline">
+            <li *ngFor="let product of products" class="column is-3">
                 <img src="{{ product.fields.image[0].fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
-                <p class="content is-size-4 is-family-sans-serif">{{ product.fields.productName }}</p>
-                <p class="content is-size-5 is-family-sans-serif">Price: {{ product.fields.price }} $</p>
+                <p class="content is-size-6 is-family-sans-serif">{{ product.fields.productName }}</p>
+                <p class="content is-size-7 is-family-sans-serif">Price: {{ product.fields.price }} $</p>
             </li>
         </ul>
     </div>    
