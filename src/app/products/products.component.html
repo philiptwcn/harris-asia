@@ -1,7 +1,7 @@
 <section class="section hero">
     <div class="hero-body has-text-white is-family-sans-serif">
-        <h1 class="is-size-1 has-text-weight-medium">當季風靡新款</h1>
-        <p class="is-size-5">從經典到潮流，總有一款屬於妳</p>
+        <h1 class="is-size-1 is-size-2-mobile has-text-weight-medium">當季風靡新款</h1>
+        <p class="is-size-5 is-size-6-mobile">從經典到潮流，總有一款屬於妳</p>
     </div>
 </section>
 <section class="section">
@@ -9,8 +9,8 @@
         <ul class="container-fluid columns is-multiline">
             <li *ngFor="let product of products" class="column is-3">
                 <img src="{{ product.fields.image[0].fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
-                <p class="content is-size-6 is-family-sans-serif">{{ product.fields.productName }}</p>
-                <p class="content is-size-7 is-family-sans-serif">Price: {{ product.fields.price }} $</p>
+                <p class="content is-size-5 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
+                <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>
             </li>
         </ul>
     </div>    

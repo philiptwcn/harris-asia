@@ -39,22 +39,24 @@
   </p>-->
 
 <section class="section" *ngIf="product">
-  <div class="columns">
-      <div class="column is-5" *ngIf="product.fields.image">
-          <div *ngFor="let image of product.fields.image">
-            <div>
-              <img class="image" src="{{ image.fields.file.url }}">
-              <p>{{ product.fields.image[0].fields.description }}</p>
-            </div>
-          </div>            
-        </div>
-  <div class="column is-5">
-      <div>
+  <div class="columns is-multiline">
+      <div class="column is-two-thirds level" *ngIf="product.fields.image">
+        <div class="level-item" *ngFor="let image of product.fields.image">
           <div>
-            <h1 class="content is-size-3-desktop is-size-5-touch is-family-sans-serif">{{ product.fields.productName }}</h1>            
+            <img class="image" src="{{ image.fields.file.url }}">
+            <p>{{ product.fields.image[0].fields.description }}</p>
+          </div>
+        </div>            
+      </div>
+  <div class="column is-one-third">
+      <div class="description">
+          <div>
+            <p class="content is-size-4-desktop is-size-5-touch is-family-sans-serif">
+              {{ product.fields.productName }}
+            </p>            
             <hr>
             <p>{{ product.fields.productDescription }}</p>
-            <h2>{{ product.fields.sizetypecolor }} | <strong>Price: {{ product.fields.price }} $</strong></h2>
+            <h2>{{ product.fields.sizetypecolor }}<br><strong>Price: {{ product.fields.price }} $</strong></h2>
             <p>SKU: {{ product.fields.sku || 'SKU not available' }}</p>
           </div>
       </div>

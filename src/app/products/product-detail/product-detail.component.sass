@@ -1,17 +1,20 @@
-.tab-container 
-  padding: 2em 0
+@font-face
+  font-family: 'Noto Sans TC', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap&subset=chinese-traditional');
 
+$family-sans-serif: 'Noto Sans TC', sans-serif
+$hr-height: .3rem
+$hr-background-color: black
 
-.brand-panel 
-  display: flex
-
-
-.brand-panel-img 
-  flex: 0 0 10em
-  margin-right: 2em
-
-  display: flex
-  justify-content: center
-  align-items: center
+.image
+  max-height: 50vh
+  max-width: 60vw
+  margin: 5rem 0 5rem 0
 
 @import "~bulma/bulma.sass"
+
++touch
+
++tablet
+  .description
+    position: fixed

@@ -1,28 +1,34 @@
-<section class="hero is-medium has-carousel">
-    <div id="hero-carousel" class="hero-carousel">
-        <div class='has-background is-active'>
-          <img class="is-background" src="https://wikiki.github.io/images/merry-christmas.jpg" alt="" />
-        </div>
-        <div class='has-background'>
-          <img class="is-background" src="https://wikiki.github.io/images/singer.jpg" alt="" />
-        </div>
-        <div class='has-background'>
-          <img class="is-background" src="https://wikiki.github.io/images/sushi.jpg" alt="" />
-        </div>
-        <div class='has-background'>
-          <img class="is-background" src="https://wikiki.github.io/images/life.jpg" alt="" />
-        </div>
-      </div>
-  
-        <script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
-        <script>            
-          bulmaCarousel.attach('#hero-carousel', {
-                    slidesToScroll: 1,
-                    slidesToShow: 4,
-                    pagination: true,
-                    effect: 'fade',
-                    infinite: true
-                });  
-        </script>
-</section>
-    
+
+
+		<section class="section">
+			<div class="container">
+				<!-- Start Carousel -->
+				<div id="carousel-demo" class="carousel">
+					<div class="item-1">
+						<!-- Slide Content -->
+					</div>
+					<div class="item-2">
+						<!-- Slide Content -->
+					</div>
+					<div class="item-3">
+						<!-- Slide Content -->
+					</div>
+				</div>
+				<!-- End Carousel -->
+			</div>
+		</section>
+
+		<script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
+		<script>
+		bulmaCarousel.attach('#carousel-demo', {
+			slidesToScroll: 1,
+			slidesToShow: 4
+    });
+    const carousels = bulmaCarousel.attach('.carousel', options);
+
+// To access to bulmaCarousel instance of an element
+const element = document.querySelector('#my-element');
+if (element && element.bulmaCarousel) {
+	// bulmaCarousel instance is available as element.bulmaCarousel
+}
+		</script>
