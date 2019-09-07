@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule, MatInputModule, MatToolbarModule, MatButtonModule, MatCardModule, MatTabsModule } from '@angular/material';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -18,17 +16,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { environment } from 'src/environments/environment';
-import { HandbagsComponent } from './handbags/handbags.component';
-import { CrossbodyComponent } from './crossbody/crossbody.component';
-import { ProductsComponent } from './products/products.component';
 import { StoriesComponent } from './stories/stories.component';
-import { FotograficaComponent } from './products/fotografica/fotografica.component';
-import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+
 import { ContentfulService } from './services/contentful.service';
 
 @NgModule({
@@ -36,16 +28,9 @@ import { ContentfulService } from './services/contentful.service';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    CarouselComponent,
     HomeComponent,
     AboutComponent,
-    HandbagsComponent,
-    CrossbodyComponent,
-    ProductsComponent,
     StoriesComponent,
-    FotograficaComponent,
-    ClassicFlapComponent,
-    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,26 +38,13 @@ import { ContentfulService } from './services/contentful.service';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
-    MatListModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatInputModule
   ],
   exports: [
-    MatListModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatInputModule
   ],
   providers: [ContentfulService],
   bootstrap: [AppComponent]
