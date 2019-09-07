@@ -30,7 +30,6 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "angularfire2": "^5.2.1",
     "bulma": "^0.7.5",
-    "bulma-extensions": "^6.2.7",
     "contentful": "^7.9.1",
     "firebase": "^6.6.0",
     "marked": "^0.7.0",
