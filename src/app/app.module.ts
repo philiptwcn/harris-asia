@@ -18,7 +18,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { environment } from 'src/environments/environment';
 import { StoriesComponent } from './stories/stories.component';
 
@@ -33,7 +32,6 @@ import { CarouselComponent } from './carousel/carousel.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent,
     StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,

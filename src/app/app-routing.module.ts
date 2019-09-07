@@ -1,7 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 
 import { StoriesComponent } from './stories/stories.component';
 
@@ -16,12 +15,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'about',
-    component: AboutComponent
-  },
-  {
     path: 'allProducts',
     loadChildren: './lazy-products.module#LazyProductsModule'
+  },
+  {
+    path: 'allAbout',
+    loadChildren: './lazy-about.module#LazyAboutModule'
   },
   {
     path: 'stories',
