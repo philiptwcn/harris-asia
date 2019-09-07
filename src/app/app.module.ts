@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -23,6 +24,9 @@ import { StoriesComponent } from './stories/stories.component';
 
 import { ContentfulService } from './services/contentful.service';
 
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { CarouselComponent } from './carousel/carousel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +35,8 @@ import { ContentfulService } from './services/contentful.service';
     HomeComponent,
     AboutComponent,
     StoriesComponent,
+    ProductDetailComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,7 @@ import { ContentfulService } from './services/contentful.service';
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
+    NgbModule,
   ],
   exports: [
   ],

@@ -7,21 +7,14 @@ import { HandbagsComponent } from './handbags/handbags.component';
 import { CrossbodyComponent } from './crossbody/crossbody.component';
 import { FotograficaComponent } from './products/fotografica/fotografica.component';
 import { ClassicFlapComponent } from './products/classic-flap/classic-flap.component';
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
-import { CarouselComponent } from './carousel/carousel.component';
 
 import { ContentfulService } from './services/contentful.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
-    path: 'allProducts',
+    path: 'products',
     component: ProductsComponent
-  },
-  {
-    path: 'products/:slug',
-    component: ProductDetailComponent
   },
   {
     path: 'fotografica',
@@ -50,13 +43,10 @@ const routes: Routes = [
     CrossbodyComponent,
     FotograficaComponent,
     ClassicFlapComponent,
-    ProductDetailComponent,
-    CarouselComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    NgbModule,
   ],
   providers: [ContentfulService],
 })

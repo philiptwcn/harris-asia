@@ -5,6 +5,8 @@ import { AboutComponent } from './about/about.component';
 
 import { StoriesComponent } from './stories/stories.component';
 
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+
 
 
 const routes: Routes = [
@@ -18,12 +20,16 @@ const routes: Routes = [
     component: AboutComponent
   },
   {
-    path: 'products',
+    path: 'allProducts',
     loadChildren: './lazy-products.module#LazyProductsModule'
   },
   {
     path: 'stories',
     component: StoriesComponent
+  },
+  {
+    path: 'products/:slug',
+    component: ProductDetailComponent
   },
 ];
 
