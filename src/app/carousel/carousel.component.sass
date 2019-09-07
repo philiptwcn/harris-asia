@@ -1,10 +1,35 @@
 .img-wrapper
-    max-height: 50vh
+    max-height: 40vh
 
 .image
-    height: 40vh
+    max-height: 27vh
+$carousel-transition: 3000
+$enable-transitions: true
+$enable-prefers-reduced-motion-media-query: true
+$carousel-transition-duration: 100
+$carousel-control-width: 200
+$carousel-control-color: black
+$carousel-control-opacity: .8
+$carousel-control-transition: false
+$carousel-control-hover-opacity: .5
+$enable-gradients: false
+$carousel-control-icon-width: 50
+$carousel-control-prev-icon-bg: none
+$carousel-control-next-icon-bg: none
+$carousel-indicator-width: 20
+$carousel-indicator-height: 10
+$carousel-indicator-spacer: 10
+$carousel-indicator-active-bg: none
+$carousel-indicator-hit-area-height: none
+$carousel-indicator-transition: none
+$carousel-caption-width: 0
+$carousel-caption-color: #000
+
+@import "~bootstrap/scss/_mixins.scss"
+@import "~bootstrap/scss/_carousel.scss"
 
 @import "~bulma/bulma.sass"
+
 
 +tablet
     .carousel

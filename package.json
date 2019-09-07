@@ -29,6 +29,7 @@
     "@mdi/font": "^4.3.95",
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "angularfire2": "^5.2.1",
+    "bootstrap": "^4.3.1",
     "bulma": "^0.7.5",
     "contentful": "^7.9.1",
     "firebase": "^6.6.0",
