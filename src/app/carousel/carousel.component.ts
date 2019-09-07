@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
+import { ContentfulService } from '../services/contentful.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-carousel',
@@ -8,10 +12,18 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class CarouselComponent implements OnInit {
+  product: Entry<any>;
 
-  constructor() { }
+
+  constructor(
+    private ContentfulService: ContentfulService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    this.route.paramMap
+    .pipe(switchMap((params: ParamMap) => this.ContentfulService.getProduct(params.get('slug'))))
+    .subscribe(product => this.product = product);
   }
 
 }

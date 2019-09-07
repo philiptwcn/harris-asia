@@ -1,34 +1,19 @@
-
-
-		<section class="section">
-			<div class="container">
-				<!-- Start Carousel -->
-				<div id="carousel-demo" class="carousel">
-					<div class="item-1">
-						<!-- Slide Content -->
-					</div>
-					<div class="item-2">
-						<!-- Slide Content -->
-					</div>
-					<div class="item-3">
-						<!-- Slide Content -->
-					</div>
-				</div>
-				<!-- End Carousel -->
+<section>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<div class="carousel" *ngIf="product">
+	<ngb-carousel #carousel interval="3000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)" *ngIf="product.fields.image">
+		<ng-template ngbSlide *ngFor="let image of product.fields.image; index as i">
+			<div class="carousel-caption">
 			</div>
-		</section>
+				<div class="img-wrapper">
+					<img src="{{ image.fields.file.url }}" alt="My image {{i + 1}} description" class="image container">
+				</div>
+		</ng-template>
+	</ngb-carousel>
+	</div>
+</section>
 
-		<script src="~bulma-carousel/dist/js/bulma-carousel.min.js"></script>
-		<script>
-		bulmaCarousel.attach('#carousel-demo', {
-			slidesToScroll: 1,
-			slidesToShow: 4
-    });
-    const carousels = bulmaCarousel.attach('.carousel', options);
 
-// To access to bulmaCarousel instance of an element
-const element = document.querySelector('#my-element');
-if (element && element.bulmaCarousel) {
-	// bulmaCarousel instance is available as element.bulmaCarousel
-}
-		</script>
+
+
+  
