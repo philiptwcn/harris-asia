@@ -2,7 +2,7 @@
 <ng-container *ngIf="(auth.user$ | async) || {} as user">
     <div class="container">
         <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
-            <div class="container">
+            <div class="container has-text-black">
                 <div class="field is-family-sans-serif">
                     <div>
                         <label class="label is-big">新用戶註冊</label>
@@ -12,12 +12,13 @@
                             <label for="email">Email</label>
                         </div>
                         <div class="field-body">
-                            <div class="control is-expanded has-icons-left">
+                            <p class="control is-expanded has-icons-left">
+                                    <span class="icon is-small is-left">
+                                            <i class="fas fa-envelope"></i>
+                                        </span>
                                 <input class="input" type="email" formControlName="email">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                            </div>
+                                
+                            </p>
                         </div>
                     </div>
                     <div *ngIf="email.invalid && email.dirty">
@@ -30,7 +31,7 @@
                             <label for="password">Password</label>
                         </div>
                         <div class="field-body">
-                            <div class="control is-expanded has-icons-left">
+                            <div class="content control is-expanded has-icons-left">
                                 <input class="input" type="password" formControlName="password" required>
                                 <span class="icon is-small is-left">
                                     <i class="fas fa-lock"></i>
@@ -49,7 +50,7 @@
                         </label>
                     </div>
                     <div class="control is-right">
-                        <button class="button" type="submit" [disabled]="!signupForm.valid">
+                        <button class="button" type="submit" [disabled]="!signupForm.valid" routerLink="">
                             Submit
                         </button>
                     </div>

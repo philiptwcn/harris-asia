@@ -45,6 +45,14 @@ export class AuthService {
         return this.handleError(error);
       }
     }
+    async emailSignIn(email: string, password: string) {
+      try {
+        const credential = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+        return this.updateUserData(credential.user); // login
+      } catch (error) {
+        return this.handleError(error);
+      }
+    }
         // Sets user data to firestore after succesful login
         private setUserDoc({ uid, email, password, displayName, photoURL }: User ) {
 
@@ -83,7 +91,7 @@ export class AuthService {
         this.updateUserData(credential.user);
       }
 
-      private updateUserData({ uid, email, displayName, photoURL }: User ) {
+      updateUserData({ uid, email, displayName, photoURL }: User ) {
         // Sets user data to firestore on login
         const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
 
