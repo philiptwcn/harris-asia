@@ -8,7 +8,7 @@ import { Entry } from 'contentful';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.sass']
+  styleUrls: ['./carousel.component.sass'],
 })
 
 

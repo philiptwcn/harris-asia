@@ -4,7 +4,7 @@
         <img src="assets/img/logo_i.svg" width="112" height="28">
       </a>
   
-      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-pulled-right" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -17,30 +17,30 @@
           關於我們
         </a>
   
-        <div class="navbar-item has-dropdown is-hoverable has-text-white">
-          <a class="navbar-link is-arrowless has-text-white" routerLink="allProducts/products">
+        <div class="navbar-item has-dropdown is-hoverable has-text-white" #dropDown>
+          <a (click)="closeDropDown()" class="navbar-link is-arrowless has-text-white" routerLink="allProducts/products">
             商品
           </a>
   
           <div class="navbar-dropdown has-background-black">
-            <a class="navbar-item has-text-white" routerLink="fotografica">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white dropDown" routerLink="allProducts/fotografica">
                 SNAPSHOT 相機包
             </a>
-            <a class="navbar-item has-text-white" routerLink="classic-flap">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white" routerLink="allProducts/classic-flap">
                 LEOPARD 口蓋包
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item has-text-white" routerLink="handbags">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white" routerLink="allProducts/handbags">
               手拿包
             </a>
-            <a class="navbar-item has-text-white" routerLink="crossbody">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white" routerLink="allProducts/crossbody">
               側背包
             </a>
-            <a class="navbar-item has-text-white">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white">
               銀包
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item has-text-white">
+            <a (click)="closeDropDown()" class="navbar-item has-text-white">
               特價品
             </a>
           </div>
