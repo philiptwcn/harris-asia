@@ -16,11 +16,15 @@ const routes: Routes = [
   },
   {
     path: 'allProducts',
-    loadChildren: './lazy-products.module#LazyProductsModule'
+    loadChildren: './modules/lazy-products.module#LazyProductsModule'
   },
   {
     path: 'allAbout',
-    loadChildren: './lazy-about.module#LazyAboutModule'
+    loadChildren: './modules/lazy-about.module#LazyAboutModule'
+  },
+  {
+    path: 'users',
+    loadChildren: './modules/form.module#FormModule'
   },
   {
     path: 'stories',

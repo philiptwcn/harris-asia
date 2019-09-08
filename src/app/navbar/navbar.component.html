@@ -57,10 +57,10 @@
         <ng-template #guest>
             <div class="navbar-item">
               <div class="buttons">
-                <button class="button is-dark">
+                <a class="button is-dark" routerLink="users/register">
                   <strong>註冊</strong>
-                </button>
-                <a class="button is-light" (click)="auth.googleSignin()">
+                </a>
+                <a class="button is-light" routerLink="users/login" (click)="auth.googleSignin()">
                   登錄
                 </a>
               </div>

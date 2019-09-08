@@ -7,18 +7,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './modules/core.module';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { environment } from 'src/environments/environment';
 import { StoriesComponent } from './stories/stories.component';
 
 import { ContentfulService } from './services/contentful.service';
@@ -42,12 +37,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFirestoreModule, // firestore
-    AngularFireAuthModule, // auth
-    AngularFireStorageModule, // storage
     NgbModule,
+    CoreModule
   ],
   exports: [
   ],

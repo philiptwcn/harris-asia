@@ -1,5 +1,5 @@
 <script src="https://kit.fontawesome.com/3ab715c41f.js"></script>
-<ng-container *ngIf="(auth.user | async) || {} as user">
+<ng-container *ngIf="(auth.user$ | async) || {} as user">
     <div class="container">
         <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
             <div class="container">
