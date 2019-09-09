@@ -16,7 +16,24 @@ export class EmailValidator {
         .valueChanges().pipe(
           debounceTime(500),
           take(1),
-          map(arr => arr.length ? { emailAvailable: false } : null ),
+          map(arr => arr.length ? null : { emailAvailable: false } ),
+        );
+    };
+  }
+}
+
+export class PasswordValidator {
+  static password(afs: AngularFirestore) {
+    return (control: AbstractControl) => {
+
+      const password = control.value.toLowerCase();
+
+      return afs.collection('users', ref => ref.where('password', '==', password) )
+
+        .valueChanges().pipe(
+          debounceTime(500),
+          take(1),
+          map(arr => arr.length ? null : { passwordAvailable: false } ),
         );
     };
   }
@@ -54,6 +71,7 @@ export class LoginFormComponent implements OnInit {
         Validators.maxLength(25),
         Validators.required
         ],
+        PasswordValidator.password(this.afs)
       ],
     });
 
@@ -70,8 +88,7 @@ export class LoginFormComponent implements OnInit {
 
   // Step 1
   signin(user: User) {
-    return this.auth.emailSignIn(this.email.value, this.password.value),
-    this.auth.updateUser(user, { displayName: this.displayName.value });
+    return this.auth.emailSignIn(this.email.value, this.password.value);
   }
 
 
