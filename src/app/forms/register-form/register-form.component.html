@@ -1,4 +1,5 @@
 <script src="https://kit.fontawesome.com/3ab715c41f.js"></script>
+<section class="hero"></section>
 <ng-container *ngIf="(auth.user$ | async) || {} as user">
     <div class="container">
         <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
@@ -16,19 +17,53 @@
                                     <span class="icon is-small is-left">
                                             <i class="fas fa-envelope"></i>
                                         </span>
-                                <input class="input" type="email" formControlName="email">
-                                
+                                <input class="input" type="email" formControlName="email" required>
                             </p>
+                            <div *ngIf="email.invalid && email.dirty" class="field-label help is-normal is-danger">
+                                <label for="invalidEmail">
+                                    格式錯誤或{{ email.value }}已被使用
+                                </label> 
+                            </div>
+                            <div *ngIf="email.valid" class="field-label is-normal help is-success">
+                                <label for="validemail">
+                                    {{ email.value }} 可用
+                                </label>
+                            </div>
+                            <div *ngIf="email.pending" class="field-label is-normal help is-info">
+                                Hold tight... 確認 {{ email.value }}
+                            </div>
                         </div>
                     </div>
-                    <div *ngIf="email.invalid && email.dirty">
-                        <label class="label" for="invalidEmail">
-                            Your email doesn't look quite right...
-                        </label> 
+                    
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label for="displayName">用戶名稱</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="content control is-expanded has-icons-left">
+                                <input class="input" type="displayName" formControlName="displayName" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                            <div *ngIf="displayName.invalid && displayName.dirty" class="field-label help is-normal is-danger">
+                                <label for="invalidDisplayName">
+                                    {{ displayName.value }} 已被使用
+                                </label>
+                            </div>
+                            <div *ngIf="displayName.valid" class="field-label is-normal help is-success">
+                                <label for="validDisplayName">
+                                    {{ displayName.value }} 可用
+                                </label>
+                            </div>
+                            <div *ngIf="displayName.pending" class="field-label is-normal help is-info">
+                                Hold tight... 確認 {{ displayName.value }}
+                            </div>
+                        </div>                        
                     </div>
                     <div class="field is-horizontal">
                         <div class="field-label is-normal">
-                            <label for="password">Password</label>
+                            <label for="password">密碼</label>
                         </div>
                         <div class="field-body">
                             <div class="content control is-expanded has-icons-left">
@@ -37,42 +72,26 @@
                                     <i class="fas fa-lock"></i>
                                 </span>
                             </div>
+                            <div *ngIf="password.invalid && password.touched" class="field-label help is-normal is-danger">
+                                <label for="invalidPassword">
+                                    密碼必須介於6-24字元並包含至少一個數字
+                                </label>
+                            </div>
+                            <div *ngIf="signupForm.valid" class="field-label is-normal help is-success">
+                                <label for="vaildSignup">
+                                    請按送出以完成
+                                </label>
+                            </div>
                         </div>                        
                     </div>
-                    <div *ngIf="password.invalid && password.touched" >
-                        <label for="invalidPassword">
-                            Password must be between 6 and 24 chars and have at least one number
-                        </label>
-                    </div>
-                    <div *ngIf="signupForm.valid" >
-                        <label for="vaildSignup">
-                            Form looks good! Let's do this.
-                        </label>
-                    </div>
+                    
                     <div class="control is-right">
                         <button class="button" type="submit" [disabled]="!signupForm.valid" routerLink="">
-                            Submit
+                            送出
                         </button>
                     </div>
                 </div>
             </div>
         </form>
-    </div>
-    <form [formGroup]="detailForm" *ngIf="user.uid && !user.catchPhrase" (ngSubmit)="setCatchPhrase(user)">
-      
-      <h3>Set your Catch Phrase</h3>
-  
-      <label for="catchPhrase">CatchPhrase</label>
-      <input type="test" formControlName="catchPhrase">
-      
-    
-      <button type="submit" [disabled]="!detailForm.valid">Submit</button>
-      
-      
-    </form>
-  
-    <p *ngIf="user.catchPhrase">
-        You have completed the form!
-    </p>
-      
-  </ng-container>
+    </div>   
+</ng-container>

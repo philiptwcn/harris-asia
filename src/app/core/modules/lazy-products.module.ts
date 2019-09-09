@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ProductsComponent } from '../products/products.component';
-import { HandbagsComponent } from '../handbags/handbags.component';
-import { CrossbodyComponent } from '../crossbody/crossbody.component';
-import { FotograficaComponent } from '../products/fotografica/fotografica.component';
-import { ClassicFlapComponent } from '../products/classic-flap/classic-flap.component';
+import { ProductsComponent } from '../../products/products.component';
+import { HandbagsComponent } from '../../handbags/handbags.component';
+import { CrossbodyComponent } from '../../crossbody/crossbody.component';
+import { FotograficaComponent } from '../../products/fotografica/fotografica.component';
+import { ClassicFlapComponent } from '../../products/classic-flap/classic-flap.component';
 
 
-import { ContentfulService } from '../services/contentful.service';
+import { ContentfulService } from '../../services/contentful.service';
 
 const routes: Routes = [
   {

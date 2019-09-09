@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
-
-import { NotifyService } from '../services/notify.service';
+import { NotifyService } from '../../services/notify.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyClew1rgcKO2gZrvBTCFcQGLHT_N1uTs4s',
@@ -25,6 +25,7 @@ export const firebaseConfig = {
   declarations: [],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule, // firestore

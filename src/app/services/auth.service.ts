@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './user.model'; // optional
 
@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { NotifyService } from './notify.service';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, first } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -34,6 +34,10 @@ export class AuthService {
         })
       );
      }
+
+    getUser(): Promise<any> {
+    return this.afAuth.authState.pipe(first()).toPromise();
+    }
 
      //// Email/Password Auth ////
 
