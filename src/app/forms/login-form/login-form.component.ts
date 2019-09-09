@@ -5,6 +5,22 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, AbstractContro
 import { map, take, debounceTime } from 'rxjs/operators';
 import { User} from '../../services/user.model';
 
+export class EmailValidator {
+  static email(afs: AngularFirestore) {
+    return (control: AbstractControl) => {
+
+      const email = control.value.toLowerCase();
+
+      return afs.collection('users', ref => ref.where('email', '==', email) )
+
+        .valueChanges().pipe(
+          debounceTime(500),
+          take(1),
+          map(arr => arr.length ? { emailAvailable: false } : null ),
+        );
+    };
+  }
+}
 
 @Component({
   selector: 'app-login-form',
@@ -16,6 +32,10 @@ export class LoginFormComponent implements OnInit {
   signinForm: FormGroup;
   detailForm: FormGroup;
 
+  // Form state
+  loading = false;
+  success = false;
+
   constructor(private afs: AngularFirestore, public fb: FormBuilder, public auth: AuthService) { }
 
   ngOnInit() {
@@ -24,10 +44,9 @@ export class LoginFormComponent implements OnInit {
     this.signinForm = this.fb.group({
       email: ['', [
         Validators.required,
-        Validators.email, ],
-      ],
-      displayName:  ['',
-        Validators.required,
+        Validators.email,
+        ],
+        EmailValidator.email(this.afs)
       ],
       password: ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
@@ -36,15 +55,8 @@ export class LoginFormComponent implements OnInit {
         Validators.required
         ],
       ],
-      region: ['', [
-        ]
-      ],
     });
 
-    // Second Step
-    this.detailForm = this.fb.group({
-      catchPhrase: ['', [ Validators.required ] ]
-    });
 
   }
 
@@ -62,9 +74,7 @@ export class LoginFormComponent implements OnInit {
     this.auth.updateUser(user, { displayName: this.displayName.value });
   }
 
-  // Step 2
-  setCatchPhrase(user) {
-    return this.auth.updateUser(user, { catchPhrase:  this.catchPhrase.value });
-  }
+
+
 }
 
