@@ -3,6 +3,7 @@ import { AngularFirestore} from '@angular/fire/firestore';
 import { AuthService } from '../../services/auth.service';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { map, take, debounceTime } from 'rxjs/operators';
+import { User} from '../../services/user.model';
 
 export class EmailValidator {
   static email(afs: AngularFirestore) {
@@ -91,8 +92,8 @@ export class RegisterFormComponent implements OnInit {
 
 
   // Step 1
-  signup(user) {
-    return this.auth.emailSignUp(this.email.value, this.password.value), 
+  signup(user: User) {
+    return this.auth.emailSignUp(this.email.value, this.password.value),
     this.auth.updateUser(user, { displayName: this.displayName.value });
   }
 

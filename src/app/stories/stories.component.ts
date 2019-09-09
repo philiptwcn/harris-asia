@@ -8,13 +8,13 @@ import { Entry } from 'contentful';
   styleUrls: ['./stories.component.sass']
 })
 export class StoriesComponent implements OnInit {
-  products: Entry<any>[];
+  newStoriesImage: Entry<any>[];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getProducts()
-    .then(products => this.products = products);
+    this.contentfulService.getNewStoriesImage()
+    .then(newStoriesImage => this.newStoriesImage = newStoriesImage);
   }
 
 }

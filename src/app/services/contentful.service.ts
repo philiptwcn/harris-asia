@@ -10,9 +10,10 @@ const DEFAULT_CONFIG = {
 
   contentTypeIds: {
     product: 'product',
-    category: 'category'
+    category: 'category',
+    newStoriesImage: 'newStoriesImage'
   }
-}
+};
 
 @Injectable()
 export class ContentfulService {
@@ -68,6 +69,14 @@ export class ContentfulService {
   getCategories(): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries({
       content_type: DEFAULT_CONFIG.contentTypeIds.category
+    })
+    .then(res => res.items);
+  }
+
+  // fetch newStoriesImage
+  getNewStoriesImage(): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries({
+      content_type: DEFAULT_CONFIG.contentTypeIds.newStoriesImage
     })
     .then(res => res.items);
   }

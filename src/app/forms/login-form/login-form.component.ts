@@ -3,57 +3,8 @@ import { AngularFirestore} from '@angular/fire/firestore';
 import { AuthService } from '../../services/auth.service';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { map, take, debounceTime } from 'rxjs/operators';
+import { User} from '../../services/user.model';
 
-export class EmailValidator {
-  static email(afs: AngularFirestore) {
-    return (control: AbstractControl) => {
-
-      const email = control.value.toLowerCase();
-
-      return afs.collection('users', ref => ref.where('email', '==', email) )
-
-        .valueChanges().pipe(
-          debounceTime(500),
-          take(1),
-          map(arr => arr.length ? { emailAvailable: false } : null ),
-        );
-    };
-  }
-}
-
-export class DisplayNameValidator {
-  static displayName(afs: AngularFirestore) {
-    return (control: AbstractControl) => {
-
-      const displayName = control.value.toLowerCase();
-
-      return afs.collection('users', ref => ref.where('displayName', '==', displayName) )
-
-        .valueChanges().pipe(
-          debounceTime(500),
-          take(1),
-          map(arr => arr.length ? { displayNameAvailable: false } : null ),
-        );
-    };
-  }
-}
-
-export class PasswordValidator {
-  static password(afs: AngularFirestore) {
-    return (control: AbstractControl) => {
-
-      const password = control.value.toLowerCase();
-
-      return afs.collection('users', ref => ref.where('password', '==', password) )
-
-        .valueChanges().pipe(
-          debounceTime(500),
-          take(1),
-          map(arr => arr.length ? { passwordAvailable: false } : null ),
-        );
-    };
-  }
-}
 
 @Component({
   selector: 'app-login-form',
@@ -74,11 +25,9 @@ export class LoginFormComponent implements OnInit {
       email: ['', [
         Validators.required,
         Validators.email, ],
-        EmailValidator.email(this.afs)
       ],
       displayName:  ['',
         Validators.required,
-        DisplayNameValidator.displayName(this.afs)
       ],
       password: ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
@@ -86,7 +35,6 @@ export class LoginFormComponent implements OnInit {
         Validators.maxLength(25),
         Validators.required
         ],
-        PasswordValidator.password(this.afs)
       ],
       region: ['', [
         ]
@@ -109,7 +57,7 @@ export class LoginFormComponent implements OnInit {
 
 
   // Step 1
-  signin(user) {
+  signin(user: User) {
     return this.auth.emailSignIn(this.email.value, this.password.value),
     this.auth.updateUser(user, { displayName: this.displayName.value });
   }
