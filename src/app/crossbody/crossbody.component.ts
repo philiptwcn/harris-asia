@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentfulService } from '../services/contentful.service';
+import { Entry } from 'contentful';
+
 
 @Component({
   selector: 'app-crossbody',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crossbody.component.sass']
 })
 export class CrossbodyComponent implements OnInit {
+  products: Entry<any>[];
 
-  constructor() { }
+  constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
+    this.contentfulService.getProducts()
+    .then(products => this.products = products);
   }
 
 }

@@ -5,17 +5,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContentfulService } from '../../services/contentful.service';
 
 import { AboutComponent } from '../../about/about.component';
+import { AboutUsComponent } from '../../about/about-us/about-us.component';
 
 const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
   },
+  {
+    path: 'aboutus',
+    component: AboutUsComponent
+  },
 ];
 
 @NgModule({
   declarations: [
     AboutComponent,
+    AboutUsComponent,
   ],
   imports: [
     CommonModule,

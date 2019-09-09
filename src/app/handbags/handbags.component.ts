@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentfulService } from '../services/contentful.service';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-handbags',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./handbags.component.sass']
 })
 export class HandbagsComponent implements OnInit {
+  products: Entry<any>[];
 
-  constructor() { }
+  constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
+    this.contentfulService.getProducts()
+    .then(products => this.products = products);
   }
 
 }

@@ -20,6 +20,7 @@ import { ContentfulService } from './services/contentful.service';
 
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { AboutUsComponent } from './about/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
