@@ -1,53 +1,45 @@
 <section class="section is-medium is-family-sans-serif">
-    <div class="columns container">
-        <div class="column is-4">
-            <aside class="menu">
-                <ul class="menu-list">
-                    <hr>
-                    <p class="menu-label is-size-6" routerLink="aboutus">品牌介紹</p>
-                    <ul class="menu-list">
-                        <li routerLink="../ourstories">品牌故事</li>
-                        <li routerLink="../ourIdea">經營理念</li>
-                        <li routerLink="../euFashion">歐洲潮流</li>
-                        <li routerLink="../fairPrice">合理價格</li>
-                    </ul>
-                    <hr>
-                    <li routerLink="../technique">精湛工藝</li>
-                    <hr>  
-                    <li routerLink="../future">未來願景</li> 
-                </ul>    
-            </aside>
+    <div class="columns container-fluid">
+        <div class="column is-2 has-text-centered">
+                <app-about-menu></app-about-menu>
         </div>
-        <div class="column is-7 is-family-sans-serif">
-            <div class="container has-text-centered is-family-sans-serif">
+        <div class="column is-10 container-fluid is-family-sans-serif">
+            <div class="container-fluid has-text-centered is-family-sans-serif">
                 <p class="has-text-weight-bold is-size-2">About Us</p>
-                <img src="../../../assets/img/top.gif" alt="" class="image ">
             </div>
-            <div class="container ">
-                <div class="container has-text-centered has-background-black">
-                    <p class="has-text-white">
+            <div class="container-fluid" style="background: url(../../../assets/img/top.gif);background-size: cover;background-position: center; height: 90vh; margin-bottom: 3vh"></div>
+            <div class="container-fluid">
+                <div class="container-fluid has-text-centered has-background-black">
+                    <p class="has-text-white is-size-4" style="padding: .5rem">
                             2018年成立 HARRIS ASIA為亞洲集團總部，<br>擁有旗下三大品牌
                     </p>
                 </div>
-                <img class="image is-128x128 is-inline-block" src="../../../assets/img/HARRIS LOGO_1_1.jpg" alt="">
-                <img class="image is-128x128 is-inline-block" src="../../../assets/img/MarcoHiuui logo_190527-02.png" alt="">
-                <img class="image is-128x128 is-inline-block" src="../../../assets/img/polo logo-01.jpg" alt="">
+                <div class="columns is-vcentered containerImage container-12 is-centered">
+                    <img class="image is-block column is-3" src="../../../assets/img/HARRIS LOGO_1_1.jpg" alt="">
+                    <img class="image is-block column is-3" src="../../../assets/img/MarcoHiuui logo_190527-02.png" alt="">
+                    <img class="image is-block column is-3" src="../../../assets/img/polo logo-01.jpg" alt="">
+                </div>
             </div>
-            <div class="container ">
-                <img src="../../../assets/img/about/HARRIS01.jpg" alt="">
-                <div class="container has-text-centered has-background-black">
-                    <p class="has-text-white">
-                        我們的目標
-                    </p>
+            <div class="container-12 columns">
+                <div class="column is-5 container-fluid" 
+                style="background: url(../../../assets/img/about/HARRIS01.jpg); background-position: center; background-size: cover">
                 </div>
-                <div class="container">
-                    <p class="content">
-                        目前位於澳門及台灣地區，未來我們更拓展至亞洲更多地區發展我們的信念與產品。<br>
-                        2019年更開拓提供網路販售部分，提供當季最新流行包款，<br>
-                        滿足更多消費者需求，並傾聽消費者心聲，理解更多層面為考量設計重點。<br>
-                        HARRIS ASIA朝著永續經營為發展目標，全力以赴創造市場價值。<br>
-                    </p>
+                <div class="column is-7 container-fluid is-paddingless">
+                    <div class="container-12 has-text-centered has-background-black">
+                        <p class="has-text-white is-size-4" style="padding: .5rem">
+                            我們的目標
+                        </p>
+                    </div>
+                    <div class="container column is-10">
+                        <p class="content is-size-5 has-text-justified" style="line-height: 4rem">
+                            目前位於澳門及台灣地區，未來我們更拓展至亞洲更多地區發展我們的信念與產品。
+                            2019年更開拓提供網路販售部分，提供當季最新流行包款，
+                            滿足更多消費者需求，並傾聽消費者心聲，理解更多層面為考量設計重點。
+                            HARRIS ASIA朝著永續經營為發展目標，全力以赴創造市場價值。
+                        </p>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </div>

@@ -9,8 +9,12 @@ import { OurStoriesComponent } from '../../about/our-stories/our-stories.compone
 import { OurIdeaComponent } from '../../about/our-idea/our-idea.component';
 import { EuFashionComponent } from '../../about/eu-fashion/eu-fashion.component';
 import { FairPriceComponent } from '../../about/fair-price/fair-price.component';
-import { TechniqueComponent } from '../../about/technique/technique.component';
 import { FutureComponent } from '../../about/future/future.component';
+import { AboutMenuComponent } from '../../about/about-menu/about-menu.component';
+import { LeagueComponent } from '../../about/leather/league/league.component';
+import { TechIntroComponent } from '../../about/leather/tech-intro/tech-intro.component';
+import { CertifComponent } from '../../about/leather/certif/certif.component';
+
 
 
 const routes: Routes = [
@@ -35,12 +39,12 @@ const routes: Routes = [
     component: FairPriceComponent
   },
   {
-    path: 'technique',
-    component: TechniqueComponent
-  },
-  {
     path: 'future',
     component: FutureComponent
+  },
+  {
+    path: 'league',
+    component: LeagueComponent
   },
 ];
 
@@ -52,8 +56,11 @@ const routes: Routes = [
     OurIdeaComponent,
     EuFashionComponent,
     FairPriceComponent,
-    TechniqueComponent,
     FutureComponent,
+    AboutMenuComponent,
+    LeagueComponent,
+    TechIntroComponent,
+    CertifComponent,
   ],
   imports: [
     CommonModule,
