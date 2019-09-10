@@ -53,7 +53,8 @@ export class ContentfulService {
   // fetch products
   getProducts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
-      content_type: DEFAULT_CONFIG.contentTypeIds.product
+      content_type: DEFAULT_CONFIG.contentTypeIds.product,
+      order: '-sys.createdAt,sys.id'
     }, query))
     .then(res => res.items);
   }
