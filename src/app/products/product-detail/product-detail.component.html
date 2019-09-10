@@ -45,7 +45,7 @@
       <div class="level-item isDesktop" *ngFor="let image of product.fields.image">
         <div>
           <img class="image" src="{{ image.fields.file.url }}">
-          <p>{{ product.fields.image[0].fields.description }}</p>
+          <p class="content is-family-sans-serif">{{ product.fields.image[0].fields.description }}</p>
         </div>
       </div>            
     </div>
@@ -58,7 +58,7 @@
               <hr>
               <p>{{ product.fields.productDescription }}</p>
               <h2>{{ product.fields.size }}<br>{{ product.fields.color }}<br><strong>Price: {{ product.fields.price }} $</strong></h2>
-              <p>SKU: {{ product.fields.sku || 'SKU not available' }}</p>
+              <!--<p>SKU: {{ product.fields.sku || 'SKU not available' }}</p>!-->
             </div>
         </div>
     </div>
