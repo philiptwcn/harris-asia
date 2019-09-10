@@ -4,12 +4,12 @@
 <section class="container-fluid has-text-centered has-text-weight-bold" style="height:5vh">
     <p class="content is-family-sans-serif is-size-3 is-bold">NEWS</p>
 </section>
-<section class="hero " *ngIf="newStoriesImage.fields.heroBodyImage">
-    <div *ngFor="let stories of newStoriesImage.fields.heroBodyImage">
+<section class="hero " *ngFor="let stories of newStoriesImage">
+    <div *ngFor="let image of stories.fields.heroBodyImage; let i = index; let o = odd">
         <div class="hero-body stories" 
-        [ngStyle]="{'background-image': 'url(' + stories.fields.file.url + ')'}"
+        [ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
         style="background-position: right"
-    ></div>
+        >
     </div>
-    
+    </div>
 </section>
