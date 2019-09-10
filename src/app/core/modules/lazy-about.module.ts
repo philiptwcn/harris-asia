@@ -46,6 +46,14 @@ const routes: Routes = [
     path: 'league',
     component: LeagueComponent
   },
+  {
+    path: 'intro',
+    component: TechIntroComponent
+  },
+  {
+    path: 'certif',
+    component: CertifComponent
+  },
 ];
 
 @NgModule({
