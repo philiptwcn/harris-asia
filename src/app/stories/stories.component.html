@@ -5,10 +5,29 @@
     <p class="content is-family-sans-serif is-size-3 is-bold">NEWS</p>
 </section>
 <section class="hero " *ngFor="let stories of newStoriesImage">
-    <div *ngFor="let image of stories.fields.heroBodyImage">
-        <div class="hero-body stories" 
-            [ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
-        ></div> 
-    </div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[0].fields.file.url + ')'}"
+        style="background-position: right"
+    ></div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[1].fields.file.url + ')'}"
+        style="background-position: right"
+    ></div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[2].fields.file.url + ')'}"
+        style="background-position: right"
+    ></div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[3].fields.file.url + ')'}"
+        style="background-position: center"
+    ></div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[4].fields.file.url + ')'}"
+        style="background-position: right"
+    ></div>
+    <div class="hero-body stories" 
+        [ngStyle]="{'background-image': 'url(' + stories.fields.heroBodyImage[5].fields.file.url + ')'}"
+        style="background-position: right"
+    ></div>
     
 </section>
