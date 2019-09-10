@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   }
 
   closeDropDown() {
-    this.dropDown.nativeElement.classList.toggle();
+    this.dropDown.nativeElement.classList.toggle('is-active');
   }
 
 
