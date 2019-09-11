@@ -1,8 +1,10 @@
 @font-face
-  font-family: 'Noto Sans TC', sans-serif;
-  src: url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap&subset=chinese-traditional');
+  font-family: 'Noto Sans TC', sans-serif
+  font-family: 'Yesteryear', cursive
+  src: url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700|Yesteryear&display=swap');
 
 $family-sans-serif: 'Noto Sans TC', sans-serif
+$family-secondary: 'Yesteryear', cursive
 
 .hero
   height: 90vh
@@ -13,3 +15,11 @@ $family-sans-serif: 'Noto Sans TC', sans-serif
 
 
 @import "~bulma/bulma.sass"
+
++tablet
+  .is-family-secondary
+    font-size: 5rem
+
++mobile
+  .is-family-secondary
+    font-size: 3rem

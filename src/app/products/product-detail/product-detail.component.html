@@ -51,13 +51,13 @@
     </div>
     <div class="column is-one-third">
         <div class="description">
-            <div>
+            <div style="line-height: 2rem">
               <p class="content is-size-4-desktop is-size-5-touch is-family-sans-serif">
                 {{ product.fields.productName }}
               </p>            
               <hr>
-              <p>{{ product.fields.productDescription }}</p>
-              <h2>{{ product.fields.size }}<br>{{ product.fields.color }}<br><strong>Price: {{ product.fields.price }} $</strong></h2>
+              <p class="is-family-sans-serif">{{ product.fields.productDescription }}</p>
+              <p class="is-family-sans-serif">{{ product.fields.size }}<br>{{ product.fields.color }}<br><strong>Price: {{ product.fields.price }} $</strong></p>
               <!--<p>SKU: {{ product.fields.sku || 'SKU not available' }}</p>!-->
             </div>
         </div>

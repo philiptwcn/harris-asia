@@ -11,7 +11,8 @@ const DEFAULT_CONFIG = {
   contentTypeIds: {
     product: 'product',
     category: 'category',
-    newStoriesImage: 'newStoriesImage'
+    newStoriesImage: 'newStoriesImage',
+    video: 'video'
   }
 };
 
@@ -75,9 +76,18 @@ export class ContentfulService {
   }
 
   // fetch newStoriesImage
-  getNewStoriesImage(): Promise<Entry<any>[]> {
+  getNewStoriesImage(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: DEFAULT_CONFIG.contentTypeIds.newStoriesImage,
+      order: 'sys.createdAt'
+    }, query))
+    .then(res => res.items);
+  }
+
+  // fetch video
+  getVideo(): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries({
-      content_type: DEFAULT_CONFIG.contentTypeIds.newStoriesImage
+      content_type: DEFAULT_CONFIG.contentTypeIds.video
     })
     .then(res => res.items);
   }

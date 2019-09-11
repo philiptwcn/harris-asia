@@ -11,12 +11,13 @@ $family-sans-serif: 'Noto Sans TC', sans-serif
     background-position: center
     display: flex
 
-.stories
-  min-height: 30vh
-  max-height: 70vh
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center
-  display: flex
 
 @import "~bulma/bulma.sass"
+
++tablet
+  .image
+    min-height: 40vh
+
++mobile
+  .image
+    min-height: 28.5vh
