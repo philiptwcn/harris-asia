@@ -92,9 +92,8 @@ export class RegisterFormComponent implements OnInit {
 
 
   // Step 1
-  signup(user: User) {
-    return this.auth.emailSignUp(this.email.value, this.password.value),
-    this.auth.updateUser(user, { displayName: this.displayName.value });
+  signup() {
+    return this.auth.emailSignUp(this.email.value, this.password.value);
   }
 
   // Step 2

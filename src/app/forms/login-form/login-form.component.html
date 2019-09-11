@@ -24,8 +24,8 @@
                                     {{ email.value }}錯誤
                                 </label> 
                             </div>
-                            <div *ngIf="email.valid" class="field-label is-normal help is-success">
-                                <label for="validemail">
+                            <div *ngIf="email.valid"  class="field-label is-normal help is-success">
+                                <label for="validEmail">
                                     {{ email.value }} 正確
                                 </label>
                             </div>
@@ -86,8 +86,11 @@
                     </div>
                     
                     <div class="control is-right">
-                        <button class="button" type="submit" [disabled]="!signinForm.valid" routerLink="">
+                        <button class="button is-pulled-right" type="submit" [disabled]="!signinForm.valid" (click)="console.log(this.email.value)">
                             送出
+                        </button>
+                        <button class="button is-pulled-right" (click)="auth.googleSignin()">
+                            <i class="fa fa-google"></i> Connect Google
                         </button>
                     </div>
                 </div>

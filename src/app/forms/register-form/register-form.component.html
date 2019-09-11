@@ -86,8 +86,11 @@
                     </div>
                     
                     <div class="control is-right">
-                        <button class="button" type="submit" [disabled]="!signupForm.valid" routerLink="">
+                        <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid" routerLink="">
                             送出
+                        </button>
+                        <button class="button is-pulled-right" (click)="auth.googleSignin()">
+                            <i class="fa fa-google"></i> 以Google登入並註冊
                         </button>
                     </div>
                 </div>
