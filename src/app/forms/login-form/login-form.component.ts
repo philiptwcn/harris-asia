@@ -16,7 +16,7 @@ export class EmailValidator {
         .valueChanges().pipe(
           debounceTime(500),
           take(1),
-          map(arr => arr ? null :{ emailMatch: true } ),
+          map(arr => arr ? null : { emailMatch: true } ),
         );
     };
   }
@@ -75,7 +75,7 @@ export class LoginFormComponent implements OnInit {
       ],
     });
 
-    console.log(this.signinForm.value);
+    
 
 
   }
