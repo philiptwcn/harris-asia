@@ -2,7 +2,7 @@
 <section class="hero"></section>
 <ng-container *ngIf="(auth.user$ | async) || {} as user">
     <div class="container">
-        <form [formGroup]="signupForm" *ngIf="!user.uid">
+        <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
             <div class="container has-text-black">
                 <div class="field is-family-sans-serif">
                     <div>
@@ -86,7 +86,7 @@
                     </div>
                     
                     <div class="control is-right">
-                        <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid" routerLink="">
+                        <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid">
                             送出
                         </button>
                         <button class="button is-pulled-right" (click)="auth.googleSignin()">

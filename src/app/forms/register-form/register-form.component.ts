@@ -57,8 +57,9 @@ export class RegisterFormComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: ['', [
         Validators.required,
-        Validators.email, ],
-        EmailValidator.email(this.afs)
+        Validators.email,
+        ],
+        EmailValidator.email(this.afs),
       ],
       displayName:  ['',
         Validators.required,
@@ -96,8 +97,5 @@ export class RegisterFormComponent implements OnInit {
     return this.auth.emailSignUp(this.email.value, this.password.value);
   }
 
-  // Step 2
-  setCatchPhrase(user) {
-    return this.auth.updateUser(user, { catchPhrase:  this.catchPhrase.value });
-  }
+
 }

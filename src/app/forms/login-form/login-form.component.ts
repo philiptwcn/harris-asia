@@ -16,7 +16,7 @@ export class EmailValidator {
         .valueChanges().pipe(
           debounceTime(500),
           take(1),
-          map(arr => arr ? null : { emailMatch: true } ),
+          map(arr => arr.length ? null : { emailMatch: false } ),
         );
     };
   }
@@ -47,7 +47,6 @@ export class PasswordValidator {
 export class LoginFormComponent implements OnInit {
 
   signinForm: FormGroup;
-  detailForm: FormGroup;
 
   // Form state
   loading = false;
@@ -62,21 +61,18 @@ export class LoginFormComponent implements OnInit {
       email: ['', [
         Validators.required,
         Validators.email,
+      ],
         EmailValidator.email(this.afs)
-        ],
       ],
       password: ['', [
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
         Validators.minLength(6),
         Validators.maxLength(25),
         Validators.required,
-        PasswordValidator.password(this.afs)
         ],
+        PasswordValidator.password(this.afs)
       ],
     });
-
-    
-
 
   }
 
@@ -85,12 +81,9 @@ export class LoginFormComponent implements OnInit {
   get displayName() { return this.signinForm.get('displayName'); }
   get password() { return this.signinForm.get('password'); }
 
-  get catchPhrase() { return this.detailForm.get('catchPhrase'); }
-
-
   // Step 1
   signin() {
-    return this.auth.emailSignIn(this.email.value, this.password.value);
+    this.auth.emailSignIn(this.email.value, this.password.value);
   }
 
 
