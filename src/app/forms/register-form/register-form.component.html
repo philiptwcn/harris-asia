@@ -86,7 +86,7 @@
                     </div>
                     
                     <div class="control is-right">
-                        <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid">
+                        <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid" (click)="signup()">
                             送出
                         </button>
                         <button class="button is-pulled-right" (click)="auth.googleSignin()">

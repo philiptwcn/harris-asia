@@ -44,6 +44,7 @@ export class AuthService {
     async emailSignUp(email: string, password: string) {
       try {
         const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+        console.log(credential)
         return this.setUserDoc(credential.user); // create initial user document
       } catch (error) {
         return this.handleError(error);
@@ -61,7 +62,7 @@ export class AuthService {
         private setUserDoc({ uid, email, password, displayName, photoURL }: User ) {
 
           const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
-
+          console.log(userRef)
           const data: User = {
             uid,
             email: email || null,
