@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-about.module#LazyAboutModule'
   },
   {
+    path: 'leather',
+    loadChildren: './core/modules/lazy-leather.module#LazyLeatherModule'
+  },
+  {
     path: 'users',
     loadChildren: './core/modules/form.module#FormModule'
   },
