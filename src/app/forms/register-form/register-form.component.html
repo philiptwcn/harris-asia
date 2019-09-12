@@ -1,11 +1,15 @@
 
 <section class="hero" style="min-height: 72vh;">
     <ng-container *ngIf="(auth.user$ | async) || {} as user">
+        <div *ngIf="user.uid" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
+            <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">帳號開通成功</p>
+            <button class="button is-success is-outlined is-rounded" routerLink = "/">立即搶購</button>
+        </div> 
         <div class="container">
-            <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
+            <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()" style="margin: 3rem">
                 <div class="container-fluid has-text-black">
                     <div class="field is-family-sans-serif">
-                        <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
+                        <div class="has-text-centered has-text-weight-semibold">
                             <label class="is-size-5">新用戶註冊</label>
                         </div>
                         <div class="field">
@@ -14,10 +18,8 @@
                             </div>
                             <div class="">
                                 <p class="control is-expanded has-icons-left">
-                                        <span class="icon is-small is-left">
-                                                <i class="fas fa-envelope"></i>
-                                            </span>
-                                    <input class="input" type="email" formControlName="email" required>
+                                    <fa-icon [icon]="['far','envelope']" class="icon is-small is-left"></fa-icon>
+                                    <input class="input is-rounded" type="email" formControlName="email" required>
                                 </p>
                                 <div *ngIf="email.invalid && email.dirty" class="label help is-normal is-danger">
                                     <label for="invalidEmail">
@@ -35,16 +37,14 @@
                             </div>
                         </div>
                         
-                        <div class="field">
+                        <div class="field" style="margin-top: 2rem">
                             <div class="label is-normal">
                                 <label for="displayName">用戶名</label>
                             </div>
                             <div class="">
                                 <div class="content control is-expanded has-icons-left">
-                                    <input class="input" type="displayName" formControlName="displayName" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
+                                    <fa-icon [icon]="['far','user']" class="icon is-small is-left"></fa-icon>
+                                    <input class="input is-rounded" type="displayName" formControlName="displayName" required>
                                 </div>
                                 <div *ngIf="displayName.invalid && displayName.dirty" class="label help is-normal is-danger">
                                     <label for="invalidDisplayName">
@@ -61,16 +61,14 @@
                                 </div>
                             </div>                        
                         </div>
-                        <div class="field">
+                        <div class="field" style="margin-top: 2rem">
                             <div class="label is-normal">
                                 <label for="password">密碼</label>
                             </div>
                             <div class="">
                                 <div class="content control is-expanded has-icons-left">
-                                    <input class="input" type="password" formControlName="password" required>
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
+                                    <input class="input is-rounded" type="password" formControlName="password" required>
+                                    <fa-icon [icon]="['fas','lock']" class="icon is-small is-left"></fa-icon>
                                 </div>
                                 <div *ngIf="password.invalid && password.touched" class="label help is-normal is-danger">
                                     <label for="invalidPassword">
@@ -85,18 +83,19 @@
                             </div>                        
                         </div>
                         
-                        <div class="control is-right" style="padding-top: 2rem">
-                            <button class="button is-pulled-right" type="submit" [disabled]="!signupForm.valid" (click)="signup()">
+                        <div class="control is-right is-family-sans-serif" style="margin-top: 2rem">
+                            <button class="button is-pulled-right is-rounded" type="submit" [disabled]="!signupForm.valid" (click)="signup()">
                                 送出
                             </button>
-                            <button class="button" (click)="auth.googleSignin()">
-                                <i class="fa fa-google"></i> 以Google登入並註冊
+                            <button class="button is-rounded" (click)="auth.googleSignin()">
+                                <fa-icon [icon]="['fab','google']" class="icon is-small is-left"></fa-icon>
+                                <p>登入並註冊</p> 
                             </button>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>   
+        </div>          
     </ng-container>
 </section>
 <script src="https://kit.fontawesome.com/3ab715c41f.js"></script>

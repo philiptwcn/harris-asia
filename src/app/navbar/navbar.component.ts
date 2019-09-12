@@ -22,17 +22,14 @@ export class NavbarComponent implements OnInit {
 
 
   toggleNavbar() {
-      this.navBurger.nativeElement.classList.toggle('is-active');
-      this.navMenu.nativeElement.classList.toggle('is-active');
+    this.navBurger.nativeElement.classList.toggle('is-active');
+    this.navMenu.nativeElement.classList.toggle('is-active');
   }
 
-  closeNavbar() {
+  onClick() {
     this.navBurger.nativeElement.classList.toggle();
     this.navMenu.nativeElement.classList.toggle();
-  }
-
-  closeDropDown() {
-    this.dropDown.nativeElement.classList.toggle('is-active');
+    this.dropDown.nativeElement.classList.toggle();
   }
 
 
