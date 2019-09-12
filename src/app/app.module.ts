@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +23,8 @@ import { ContentfulService } from './services/contentful.service';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
+library.add(fas);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     HttpClientModule,
     FontAwesomeModule,
     NgbModule,
-    CoreModule
+    CoreModule,
   ],
   exports: [
   ],

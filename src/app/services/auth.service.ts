@@ -41,11 +41,10 @@ export class AuthService {
 
      //// Email/Password Auth ////
 
-    async emailSignUp(email: string, password: string) {
+    async emailSignUp(email: string, password: string, displayName: string) {
       try {
         const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
-        console.log(credential)
-        return this.setUserDoc(credential.user); // create initial user document
+        return this.setUserDoc(credential.user, password, displayName); // create initial user document
       } catch (error) {
         return this.handleError(error);
       }
@@ -53,25 +52,24 @@ export class AuthService {
     async emailSignIn(email: string, password: string) {
       try {
         const credential = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
-        return this.updateUserData(credential.user); // login
+        // return this.updateUserData(credential.user); // login
       } catch (error) {
         return this.handleError(error);
       }
     }
         // Sets user data to firestore after succesful login
-        private setUserDoc({ uid, email, password, displayName, photoURL }: User ) {
+        private setUserDoc({ uid, email }: User, password: string, displayName: string ) {
 
           const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
-          console.log(userRef)
-          const data: User = {
+          const data = {
             uid,
             email: email || null,
             password,
+            photoURL: 'https://www.harris-asia.com/assets/img/logo_i.svg',
             displayName,
-            photoURL,
           };
 
-          return userRef.set(data);
+          return userRef.set(data, { merge: true });
 
         }
         // Update properties on the user document
@@ -99,7 +97,6 @@ export class AuthService {
       private updateUserData({ uid, email, displayName, photoURL }: User ) {
         // Sets user data to firestore on login
         const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
-
         const data = {
           uid,
           email,
