@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { LoginFormComponent } from '../../forms/login-form/login-form.component';
 import { RegisterFormComponent } from '../../forms/register-form/register-form.component';
 
-library.add(fas, far, fab);
+
 
 const routes: Routes = [
   {
@@ -37,4 +35,8 @@ const routes: Routes = [
     FontAwesomeModule
   ],
 })
-export class FormModule { }
+export class FormModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, fab);
+  }
+}

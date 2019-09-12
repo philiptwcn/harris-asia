@@ -4,10 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -23,10 +19,11 @@ import { StoriesComponent } from './stories/stories.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
 
+import { AboutUsComponent } from './about/about-us/about-us.component';
+import { AboutMenuModule } from './core/modules/about-menu.module';
+
 import { ContentfulService } from './services/contentful.service';
 
-
-library.add(fas, far, fab);
 
 @NgModule({
   declarations: [
@@ -37,6 +34,7 @@ library.add(fas, far, fab);
     StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +44,7 @@ library.add(fas, far, fab);
     FontAwesomeModule,
     NgbModule,
     CoreModule,
+    AboutMenuModule,
   ],
   exports: [
   ],

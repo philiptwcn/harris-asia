@@ -4,53 +4,40 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContentfulService } from '../../services/contentful.service';
 
-import { AboutComponent } from '../../about/about.component';
-import { AboutUsComponent } from '../../about/about-us/about-us.component';
 import { OurStoriesComponent } from '../../about/our-stories/our-stories.component';
 import { OurIdeaComponent } from '../../about/our-idea/our-idea.component';
 import { EuFashionComponent } from '../../about/eu-fashion/eu-fashion.component';
 import { FairPriceComponent } from '../../about/fair-price/fair-price.component';
 import { FutureComponent } from '../../about/future/future.component';
 
-import { AboutMenuModule } from '../modules/about-menu.module';
 
 
 
 const routes: Routes = [
   {
-    path: 'allAbout',
-    component: AboutComponent
-  },
-  {
-    path: 'aboutus',
-    component: AboutUsComponent
-  },
-  {
-    path: 'ourstories',
+    path: 'aboutus/ourstories',
     component: OurStoriesComponent
   },
   {
-    path: 'ouridea',
+    path: 'aboutus/ouridea',
     component: OurIdeaComponent
   },
   {
-    path: 'eufashion',
+    path: 'aboutus/eufashion',
     component: EuFashionComponent
   },
   {
-    path: 'fairprice',
+    path: 'aboutus/fairprice',
     component: FairPriceComponent
   },
   {
-    path: 'future',
+    path: 'aboutus/future',
     component: FutureComponent
   },
 ];
 
 @NgModule({
   declarations: [
-    AboutComponent,
-    AboutUsComponent,
     OurStoriesComponent,
     OurIdeaComponent,
     OurIdeaComponent,
@@ -60,7 +47,6 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    AboutMenuModule,
     RouterModule.forChild(routes),
   ],
   providers: [ContentfulService],
