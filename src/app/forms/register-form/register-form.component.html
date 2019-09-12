@@ -3,81 +3,81 @@
     <ng-container *ngIf="(auth.user$ | async) || {} as user">
         <div class="container">
             <form [formGroup]="signupForm" *ngIf="!user.uid" (ngSubmit)="signup()">
-                <div class="container has-text-black">
+                <div class="container-fluid has-text-black">
                     <div class="field is-family-sans-serif">
                         <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
                             <label class="is-size-5">新用戶註冊</label>
                         </div>
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
+                        <div class="field">
+                            <div class="label is-normal">
                                 <label for="email">Email</label>
                             </div>
-                            <div class="field-body">
+                            <div class="">
                                 <p class="control is-expanded has-icons-left">
                                         <span class="icon is-small is-left">
                                                 <i class="fas fa-envelope"></i>
                                             </span>
                                     <input class="input" type="email" formControlName="email" required>
                                 </p>
-                                <div *ngIf="email.invalid && email.dirty" class="field-label help is-normal is-danger">
+                                <div *ngIf="email.invalid && email.dirty" class="label help is-normal is-danger">
                                     <label for="invalidEmail">
                                         格式錯誤或{{ email.value }}已被使用
                                     </label> 
                                 </div>
-                                <div *ngIf="email.valid" class="field-label is-normal help is-success">
+                                <div *ngIf="email.valid" class="label is-normal help is-success">
                                     <label for="validemail">
                                         {{ email.value }} 可用
                                     </label>
                                 </div>
-                                <div *ngIf="email.pending" class="field-label is-normal help is-info">
+                                <div *ngIf="email.pending" class="label is-normal help is-info">
                                     Hold tight... 確認 {{ email.value }}
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
+                        <div class="field">
+                            <div class="label is-normal">
                                 <label for="displayName">用戶名</label>
                             </div>
-                            <div class="field-body">
+                            <div class="">
                                 <div class="content control is-expanded has-icons-left">
                                     <input class="input" type="displayName" formControlName="displayName" required>
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </div>
-                                <div *ngIf="displayName.invalid && displayName.dirty" class="field-label help is-normal is-danger">
+                                <div *ngIf="displayName.invalid && displayName.dirty" class="label help is-normal is-danger">
                                     <label for="invalidDisplayName">
                                         {{ displayName.value }} 已被使用
                                     </label>
                                 </div>
-                                <div *ngIf="displayName.valid" class="field-label is-normal help is-success">
+                                <div *ngIf="displayName.valid" class="label is-normal help is-success">
                                     <label for="validDisplayName">
                                         {{ displayName.value }} 可用
                                     </label>
                                 </div>
-                                <div *ngIf="displayName.pending" class="field-label is-normal help is-info">
+                                <div *ngIf="displayName.pending" class="label is-normal help is-info">
                                     Hold tight... 確認 {{ displayName.value }}
                                 </div>
                             </div>                        
                         </div>
-                        <div class="field is-horizontal">
-                            <div class="field-label is-normal">
+                        <div class="field">
+                            <div class="label is-normal">
                                 <label for="password">密碼</label>
                             </div>
-                            <div class="field-body">
+                            <div class="">
                                 <div class="content control is-expanded has-icons-left">
                                     <input class="input" type="password" formControlName="password" required>
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </div>
-                                <div *ngIf="password.invalid && password.touched" class="field-label help is-normal is-danger">
+                                <div *ngIf="password.invalid && password.touched" class="label help is-normal is-danger">
                                     <label for="invalidPassword">
-                                        密碼必須介於6-24字元並包含至少一個數字
+                                        密碼須介於6-24個英數字元
                                     </label>
                                 </div>
-                                <div *ngIf="signupForm.valid" class="field-label is-normal help is-success">
+                                <div *ngIf="signupForm.valid" class="label is-normal help is-success">
                                     <label for="vaildSignup">
                                         請按送出以完成
                                     </label>
