@@ -72,6 +72,7 @@
             <div class="navbar-item is-family-sans-serif">
               <p class="has-text-white">嗨， {{ user.displayName }}</p>
               <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
+              <button class="button" routerLink='cart'>cart</button>
               <!--<p>UID: {{ user.uid }}</p>-->
               <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
             </div>

@@ -22,6 +22,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 
 import { ContentfulService } from './services/contentful.service';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ContentfulService } from './services/contentful.service';
     StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
