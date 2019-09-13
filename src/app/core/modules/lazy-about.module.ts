@@ -13,25 +13,26 @@ import { FutureComponent } from '../../about/future/future.component';
 
 
 
+
 const routes: Routes = [
   {
-    path: 'aboutus/ourstories',
+    path: 'ourstories',
     component: OurStoriesComponent
   },
   {
-    path: 'aboutus/ouridea',
+    path: 'ouridea',
     component: OurIdeaComponent
   },
   {
-    path: 'aboutus/eufashion',
+    path: 'eufashion',
     component: EuFashionComponent
   },
   {
-    path: 'aboutus/fairprice',
+    path: 'fairprice',
     component: FairPriceComponent
   },
   {
-    path: 'aboutus/future',
+    path: 'future',
     component: FutureComponent
   },
 ];

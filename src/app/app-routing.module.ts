@@ -2,9 +2,9 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { StoriesComponent } from './stories/stories.component';
-
 import { AboutUsComponent } from './about/about-us/about-us.component';
+
+import { StoriesComponent } from './stories/stories.component';
 
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
@@ -21,16 +21,16 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-products.module#LazyProductsModule'
   },
   {
+    path: 'aboutus',
+    component: AboutUsComponent
+  },
+  {
     path: 'about',
     loadChildren: './core/modules/lazy-about.module#LazyAboutModule'
   },
   {
     path: 'leather',
     loadChildren: './core/modules/lazy-leather.module#LazyLeatherModule'
-  },
-  {
-    path: 'aboutus',
-    component: AboutUsComponent
   },
   {
     path: 'users',

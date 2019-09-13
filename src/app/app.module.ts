@@ -20,7 +20,6 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { CarouselComponent } from './carousel/carousel.component';
 
 import { AboutUsComponent } from './about/about-us/about-us.component';
-import { AboutMenuModule } from './core/modules/about-menu.module';
 
 import { ContentfulService } from './services/contentful.service';
 
@@ -34,7 +33,7 @@ import { ContentfulService } from './services/contentful.service';
     StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,
-    AboutUsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +43,6 @@ import { ContentfulService } from './services/contentful.service';
     FontAwesomeModule,
     NgbModule,
     CoreModule,
-    AboutMenuModule,
   ],
   exports: [
   ],

@@ -8,7 +8,6 @@ import { LeagueComponent } from '../../about/leather/league/league.component';
 import { TechIntroComponent } from '../../about/leather/tech-intro/tech-intro.component';
 import { CertifComponent } from '../../about/leather/certif/certif.component';
 
-import { AboutMenuModule } from '../modules/about-menu.module';
 
 const routes: Routes = [
   {
@@ -34,7 +33,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    AboutMenuModule
   ],
   providers: [ContentfulService],
 })
