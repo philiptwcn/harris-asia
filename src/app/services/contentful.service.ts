@@ -68,11 +68,16 @@ export class ContentfulService {
   }
 
   // fetch categories
-  getCategories(): Promise<Entry<any>[]> {
-    return this.cdaClient.getEntries({
+  getCategories(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
       content_type: DEFAULT_CONFIG.contentTypeIds.category
-    })
+    }, query))
     .then(res => res.items);
+  }
+
+  // fetch categories
+  getProductsByCategoryName(name: string): Promise<Entry<any>[]> {
+    return this.getProducts({ 'fields.categories.sys.id': name });
   }
 
   // fetch newStoriesImage

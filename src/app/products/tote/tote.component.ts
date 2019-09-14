@@ -8,26 +8,13 @@ import { Entry } from 'contentful';
   styleUrls: ['./tote.component.sass']
 })
 export class ToteComponent implements OnInit {
-  categories: Entry<any>[];
-  productsForCategories: {} = {};
+  products: Entry<any>[];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getCategories()
-    .then(categories => {
-      this.categories = categories;
-
-      return Promise.all(this.categories.map(
-        category => this.contentfulService.getProducts({
-          'fields.categories.sys.id': category.sys.id
-        })
-      ))
-    })
-    .then(productListings => {
-      this.categories.forEach((cat, i) => {
-        this.productsForCategories[cat.sys.id] = productListings[5];
-      });
-    })
+    this.contentfulService.getProductsByCategoryName('6pVVERCdgC87CXudZzx6cX').then(result =>{
+      this.products = result;
+    });
   }
 }

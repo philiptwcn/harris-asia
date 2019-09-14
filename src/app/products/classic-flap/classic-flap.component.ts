@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentfulService } from '../../services/contentful.service';
+import { Entry } from 'contentful';
 
 @Component({
   selector: 'app-classic-flap',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classic-flap.component.sass']
 })
 export class ClassicFlapComponent implements OnInit {
+  products: Entry<any>[];
 
-  constructor() { }
+  constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
+    this.contentfulService.getProductsByCategoryName('13a6BP1pNbd2wmT8aFeJAt').then(result =>{
+      this.products = result;
+    });
   }
-
 }

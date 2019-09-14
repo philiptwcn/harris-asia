@@ -8,26 +8,13 @@ import { Entry } from 'contentful';
   styleUrls: ['./fotografica.component.sass']
 })
 export class FotograficaComponent implements OnInit {
-  categories: Entry<any>[];
-  productsForCategories: {} = {};
+  products: Entry<any>[];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getCategories()
-    .then(categories => {
-      this.categories = categories;
-
-      return Promise.all(this.categories.map(
-        category => this.contentfulService.getProducts({
-          'fields.categories.sys.id': category.sys.id
-        })
-      ))
-    })
-    .then(productListings => {
-      this.categories.forEach((cat, i) => {
-        this.productsForCategories[cat.sys.id] = productListings[0];
-      });
-    })
+    this.contentfulService.getProductsByCategoryName('Xv8N9irXPPR2sLTf7ytIZ').then(result =>{
+      this.products = result;
+    });
   }
 }
