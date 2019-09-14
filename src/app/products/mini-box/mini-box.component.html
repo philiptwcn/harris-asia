@@ -6,9 +6,9 @@
 </section>
 <section class="section">
     <div class="container has-text-centered">
-        <ul class="container-fluid columns is-multiline">
-            <li *ngFor="let product of products" class="column is-3">
-                <img src="{{ product.fields.image[0].fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
+        <ul class="container-fluid columns is-multiline" *ngFor="let category of categories">
+            <li *ngFor="let product of productsForCategories[category.sys.id]" class="column is-3">
+                <img src="{{ product.fields.thumbnail.fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
                 <p class="content is-size-5 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
                 <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>
             </li>

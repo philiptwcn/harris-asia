@@ -9,13 +9,26 @@ import { Entry } from 'contentful';
   styleUrls: ['./crossbody.component.sass']
 })
 export class CrossbodyComponent implements OnInit {
-  products: Entry<any>[];
+  categories: Entry<any>[];
+  productsForCategories: {} = {};
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getProducts()
-    .then(products => this.products = products);
-  }
+    this.contentfulService.getCategories()
+    .then(categories => {
+      this.categories = categories;
 
+      return Promise.all(this.categories.map(
+        category => this.contentfulService.getProducts({
+          'fields.categories.sys.id': category.sys.id
+        })
+      ))
+    })
+    .then(productListings => {
+      this.categories.forEach((cat, i) => {
+        this.productsForCategories[cat.sys.id] = productListings[6];
+      });
+    })
+  }
 }

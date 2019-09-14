@@ -1,7 +1,5 @@
-import { switchMap } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../../services/contentful.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Entry } from 'contentful';
 
 @Component({
@@ -28,7 +26,7 @@ export class WalletComponent implements OnInit {
     })
     .then(productListings => {
       this.categories.forEach((cat, i) => {
-        this.productsForCategories[cat.sys.id] = productListings[i];
+        this.productsForCategories[cat.sys.id] = productListings[1];
       });
     })
   }
