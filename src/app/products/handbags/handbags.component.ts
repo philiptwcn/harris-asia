@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentfulService } from '../services/contentful.service';
+import { ContentfulService } from '../../services/contentful.service';
 import { Entry } from 'contentful';
 
 @Component({
