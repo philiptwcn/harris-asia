@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,7 +23,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { AboutUsComponent } from './about/about-us/about-us.component';
 
 import { ContentfulService } from './services/contentful.service';
-import { CartComponent } from './cart/cart.component';
+
 
 
 @NgModule({
@@ -35,7 +36,6 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailComponent,
     CarouselComponent,
     AboutUsComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,4 +51,8 @@ import { CartComponent } from './cart/cart.component';
   providers: [ContentfulService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faShoppingBag);
+  }
+}

@@ -46,10 +46,7 @@ const routes: Routes = [
     path: 'products/:slug',
     component: ProductDetailComponent
   },
-  {
-    path: 'cart',
-    component: CartComponent
-  },
+
 ];
 
 @NgModule({
