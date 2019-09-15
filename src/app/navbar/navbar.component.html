@@ -62,10 +62,13 @@
         </div>
         <!-- User NOT logged in -->
         <ng-template #guest>
+          <div class="navbar-item">
+            <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+                  </fa-icon>CART</button>
+          </div>
             <div class="navbar-item">
               <div class="buttons">
-                <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-                  </fa-icon>CART</button>
+                
                 <a class="button is-dark" routerLink="users/login">
                   登錄
                 </a>
@@ -81,8 +84,8 @@
             <div class="navbar-item is-family-sans-serif">
               <p class="has-text-white">嗨， {{ user.displayName }}</p>
               <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
-              <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small">
-                </fa-icon></button>
+              <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+                </fa-icon>CART</button>
               <!--<p>UID: {{ user.uid }}</p>-->
               <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
             </div>
