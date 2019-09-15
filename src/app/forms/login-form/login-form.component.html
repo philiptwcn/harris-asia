@@ -2,7 +2,7 @@
 <section class="hero" style="min-height: 72vh;">
     <ng-container *ngIf="(auth.user$ | async) || {} as user">
         <div *ngIf="user.uid" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
-            <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">帳號登陸成功</p>
+            <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">帳號登錄成功</p>
             <button class="button is-success is-outlined is-rounded" routerLink = "/">立即搶購</button>
         </div> 
         <div class="container">
