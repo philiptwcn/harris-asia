@@ -15,8 +15,6 @@ import { Entry } from 'contentful';
 export class CarouselComponent implements OnInit {
   product: Entry<any>;
 
-  images = [1, 2, 3, 4, 5, 6, 7].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-
   paused = false;
   showNavigationArrows = true;
   unpauseOnArrow = true;
