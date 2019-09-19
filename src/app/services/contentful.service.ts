@@ -89,14 +89,6 @@ export class ContentfulService {
     .then(res => res.items);
   }
 
-  // fetch video
-  getVideo(): Promise<Entry<any>[]> {
-    return this.cdaClient.getEntries({
-      content_type: DEFAULT_CONFIG.contentTypeIds.video
-    })
-    .then(res => res.items);
-  }
-
   // return a custom config if available
   getConfig(): { space: string, accessToken: string } {
     return this.config !== DEFAULT_CONFIG.credentials ?

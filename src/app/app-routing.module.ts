@@ -1,14 +1,9 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { AboutUsComponent } from './about/about-us/about-us.component';
-
-import { StoriesComponent } from './stories/stories.component';
-
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
-import { CartComponent } from './cart/cart.component';
 
 
 
@@ -23,10 +18,6 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-products.module#LazyProductsModule'
   },
   {
-    path: 'aboutus',
-    component: AboutUsComponent
-  },
-  {
     path: 'about',
     loadChildren: './core/modules/lazy-about.module#LazyAboutModule'
   },
@@ -35,17 +26,22 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-leather.module#LazyLeatherModule'
   },
   {
+    path: 'stories',
+    loadChildren: './core/modules/lazy-story.module#LazyStoryModule'
+  },
+  {
     path: 'users',
     loadChildren: './core/modules/form.module#FormModule'
   },
   {
-    path: 'stories',
-    component: StoriesComponent
+    path: 'products/:slug',
+    component: ProductDetailComponent,
   },
   {
-    path: 'products/:slug',
-    component: ProductDetailComponent
-  },
+    path: '**',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
 
 ];
 

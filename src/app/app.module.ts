@@ -15,12 +15,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { StoriesComponent } from './stories/stories.component';
 
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CarouselComponent } from './carousel/carousel.component';
-
-import { AboutUsComponent } from './about/about-us/about-us.component';
 
 import { ContentfulService } from './services/contentful.service';
 
@@ -32,10 +29,8 @@ import { ContentfulService } from './services/contentful.service';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    StoriesComponent,
     ProductDetailComponent,
     CarouselComponent,
-    AboutUsComponent,
   ],
   imports: [
     BrowserModule,

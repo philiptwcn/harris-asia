@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
-import { Entry } from 'contentful';
+import { Asset } from 'contentful';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +8,13 @@ import { Entry } from 'contentful';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  video: Entry<any>[];
+  asset: Asset;
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getVideo()
-    .then(video => this.video = video);
+    this.contentfulService.cdaClient.getAsset('5QOKNZjkrPgyAmSGB3nMXo')
+    .then(asset => this.asset = asset);
   }
 
 }

@@ -1,100 +1,99 @@
-<nav class="navbar is-black is-transparent has-text-white" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" routerLink="">
-        <img src="assets/img/logo_i.svg" width="112" height="28">
+<div class="navbar-brand">
+  <a class="navbar-item" routerLink="">
+    <img src="assets/img/logo_i.svg" width="112" height="28">
+  </a>
+
+  <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-pulled-right" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+</div>
+<br>
+<div class="navbar-menu has-background-black" #navMenu>
+  <div class="navbar-start">
+    <a class="navbar-item has-text-white" routerLink="about/aboutus">
+      關於我們
+    </a>
+    <a class="navbar-item has-text-white" routerLink="leather/league">
+      精湛工藝
+    </a>
+
+    <div class="navbar-item has-dropdown is-hoverable" #dropDown >
+      <a class="navbar-link is-arrowless has-text-white" routerLink="/allProducts/products">
+        商品
       </a>
-  
-      <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-pulled-right" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+
+      <div class="navbar-dropdown has-background-black">
+        <a class="navbar-item has-text-white" routerLink="allProducts/fotografica">
+            SnapShot 相機包
+        </a>
+        <a class="navbar-item has-text-white" routerLink="allProducts/classic-flap">
+            Leopard 口蓋包
+        </a>
+        <hr class="navbar-divider">
+        <a class="navbar-item has-text-white" routerLink="allProducts/handbags">
+          HandBag 手拿包
+        </a>
+        <a class="navbar-item has-text-white" routerLink="allProducts/minibox">
+          MiniBox 方包
+        </a>
+        <a class="navbar-item has-text-white" routerLink="allProducts/crossbody">
+          CrossBody 側背包
+        </a>
+        <a class="navbar-item has-text-white" routerLink="allProducts/tote">
+          Tote 托特包
+        </a>
+        <a class="navbar-item has-text-white" routerLink="allProducts/wallet">
+          Wallet 銀包
+        </a>
+        <hr class="navbar-divider">
+        <a class="navbar-item has-text-white">
+          Sale 特價品
+        </a>
+      </div>
     </div>
-   <br>
-    <div class="navbar-menu has-text-white has-background-black" #navMenu>
-      <div class="navbar-start has-text-white">
-        <a class="navbar-item has-text-white" routerLink="aboutus">
-          關於我們
-        </a>
-        <a class="navbar-item has-text-white" routerLink="leather/league">
-          精湛工藝
-        </a>
-  
-        <div class="navbar-item has-dropdown is-hoverable has-text-white" #dropDown >
-          <a class="navbar-link is-arrowless has-text-white" routerLink="allProducts/products">
-            商品
-          </a>
-  
-          <div class="navbar-dropdown has-background-black">
-            <a class="navbar-item has-text-white" routerLink="allProducts/fotografica">
-                SnapShot 相機包
+    <a class="navbar-item has-text-white" routerLink="stories/story">
+      最新消息
+    </a>
+  </div>
+  <div class="navbar-end">
+    
+    <div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+    </div>
+    <!-- User NOT logged in -->
+    <ng-template #guest>
+      <div class="navbar-item">
+        <button class="button is-black" routerLink='/users/cart'>
+          <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+              </fa-icon>CART</button>
+      </div>
+        <div class="navbar-item">
+          <div class="buttons">
+            
+            <a class="button is-dark" routerLink="users/login">
+              登錄
             </a>
-            <a class="navbar-item has-text-white" routerLink="allProducts/classic-flap">
-                Leopard 口蓋包
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item has-text-white" routerLink="allProducts/handbags">
-              HandBag 手拿包
-            </a>
-            <a class="navbar-item has-text-white" routerLink="allProducts/minibox">
-              MiniBox 方包
-            </a>
-            <a class="navbar-item has-text-white" routerLink="allProducts/crossbody">
-              CrossBody 側背包
-            </a>
-            <a class="navbar-item has-text-white" routerLink="allProducts/tote">
-              Tote 托特包
-            </a>
-            <a class="navbar-item has-text-white" routerLink="allProducts/wallet">
-              Wallet 銀包
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item has-text-white">
-              Sale 特價品
+            <a class="button is-light" routerLink="users/register">
+              <strong>註冊</strong>
             </a>
           </div>
         </div>
-        <a class="navbar-item has-text-white" routerLink="stories">
-          最新消息
-        </a>
-      </div>
-      <div class="navbar-end">
-        
-        <div *ngIf="auth.user$ | async; then authenticated else guest">
-        <!-- template will replace this div -->
+    </ng-template>
+    <!-- User logged in -->
+    <ng-template #authenticated>
+      <div *ngIf="auth.user$ | async as user">
+        <div class="navbar-item is-family-sans-serif">
+          <p class="has-text-white">嗨， {{ user.displayName }}</p>
+          <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
+          <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+            </fa-icon>CART</button>
+          <!--<p>UID: {{ user.uid }}</p>-->
+          <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
         </div>
-        <!-- User NOT logged in -->
-        <ng-template #guest>
-          <div class="navbar-item">
-            <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-                  </fa-icon>CART</button>
-          </div>
-            <div class="navbar-item">
-              <div class="buttons">
-                
-                <a class="button is-dark" routerLink="users/login">
-                  登錄
-                </a>
-                <a class="button is-light" routerLink="users/register">
-                  <strong>註冊</strong>
-                </a>
-              </div>
-            </div>
-        </ng-template>
-        <!-- User logged in -->
-        <ng-template #authenticated>
-          <div *ngIf="auth.user$ | async as user">
-            <div class="navbar-item is-family-sans-serif">
-              <p class="has-text-white">嗨， {{ user.displayName }}</p>
-              <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
-              <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-                </fa-icon>CART</button>
-              <!--<p>UID: {{ user.uid }}</p>-->
-              <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
-            </div>
-          </div>
-        </ng-template>
       </div>
-    </div>
-  </nav>
-  
+    </ng-template>
+  </div>
+</div>
+
