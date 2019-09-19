@@ -11,7 +11,7 @@
                 <p>{{ stories.fields.subtitle }}</p>
                 <hr>
                 <p class="is-size-1-tablet is-size-3-mobile">{{ stories.fields.titleZh }}</p>
-                <p class="is-size-4-tablet is-size-6-mobile">{{ stories.fields.description }}</p>
+                <div class="is-size-4-tablet is-size-6-mobile" [innerHTML]= "stories.fields.description | mdToHtml"></div>
             </div>            
         </div>
         <div class="column is-9 image" 
@@ -27,7 +27,7 @@
                 <p>{{ stories.fields.subtitle }}</p>
                 <hr>
                 <p class="is-size-1-tablet is-size-3-mobile">{{ stories.fields.titleZh }}</p>
-                <p class="is-size-4-tablet is-size-6-mobile">{{ stories.fields.description }}</p>
+                <div class="is-size-4-tablet is-size-6-mobile" [innerHTML]= "stories.fields.description | mdToHtml"></div>
             </div> 
         </div>
     </div>

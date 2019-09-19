@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { StoriesComponent } from '../../stories/stories.component';
 
 import { ContentfulService } from '../../services/contentful.service';
+import { MdToHtmlPipe } from '../../services/md-to-html.pipe';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    StoriesComponent
+    StoriesComponent,
+    MdToHtmlPipe,
   ],
   imports: [
     CommonModule,
