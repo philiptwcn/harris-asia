@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('navBurger', {static: true}) navBurger: ElementRef;
   @ViewChild('navMenu', {static: true}) navMenu: ElementRef;
-  @ViewChild('dropDown', {static: true}) dropDown: ElementRef;
+  @ViewChild('drop', {static: true}) drop: ElementRef;
 
   ngOnInit() {
   }
@@ -24,6 +24,9 @@ export class NavbarComponent implements OnInit {
   toggleNavbar() {
     this.navBurger.nativeElement.classList.toggle('is-active');
     this.navMenu.nativeElement.classList.toggle('is-active');
+  }
+  toggleDrop() {
+    this.drop.nativeElement.classList.toggle('is-active');
   }
 
 
