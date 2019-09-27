@@ -10,7 +10,7 @@
   </a>
 </div>
 <br>
-<div class="navbar-menu has-background-black" #navMenu>
+<div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
     <a class="navbar-item has-text-white" routerLink="about/aboutus">
       關於我們
@@ -24,7 +24,7 @@
         商品
       </a>
 
-      <div class="navbar-dropdown has-background-black" (click)="toggleNavbar()">
+      <div class="navbar-dropdown has-background-black">
         <a class="navbar-item has-text-white" routerLink="allProducts/fotografica">
             SnapShot 相機包
         </a>
