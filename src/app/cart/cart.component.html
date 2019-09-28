@@ -3,19 +3,19 @@
 </div>
 <div class="section">
     <div class="columns">
-        <div class="column is-2"></div>
-        <div class="column is-6">
-            <div class="box columns is-multiline">
-                <p class="column is-12 is-size-5">some item in cart</p>
-                <img src="" alt="" class="column is-2">
-                <div class="column is-2">
-                    <p>color</p>
-                    <p>size</p>
+        <div class="column is-1"></div>
+        <div class="column is-7">
+            <div class="box columns is-multiline" *ngFor="let item of items">
+                <p class="column is-12 is-size-5">{{ item.fields.productName }}</p>
+                <img src="{{ item.fields.image[0].fields.file.url }}" alt="" class="column is-3">
+                <div class="column is-3">
+                    <p>{{ item.fields.color }}</p>
+                    <p>{{ item.fields.size }}</p>
                 </div>
-                <p class="column is-2">each</p>
-                <p class="column is-2">quantity</p>
-                <p class="column is-2">total</p>
-                <p class="column is-2 has-text-weight-bold">X</p>
+                <p class="column is-2">{{item.fields.price | currency }}</p>
+                <p class="column is-1">quantity</p>
+                <p class="column is-2">{{item.fields.price | currency }}</p>
+                <p class="column is-1 has-text-weight-bold">X</p>
             </div>
         </div>
         <div class="column is-1"></div>
