@@ -2,13 +2,13 @@
   <a class="navbar-item" routerLink="">
     <img src="assets/img/logo_i.svg" width="112" height="28">
   </a>
-
-  <a (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-pulled-right" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-    <span aria-hidden="true"></span>
-  </a>
 </div>
+  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" style="float: right">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </div>
+
 <br>
 <div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
@@ -58,7 +58,6 @@
     </a>
   </div>
   <div class="navbar-end">
-    
     <div *ngIf="auth.user$ | async; then authenticated else guest">
     <!-- template will replace this div -->
     </div>
