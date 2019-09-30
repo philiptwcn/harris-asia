@@ -1,6 +1,8 @@
-
 <section class="section" *ngIf="product">
-    <app-carousel class="carousel"></app-carousel>
+    <app-carousel class="carousel">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  
+    </app-carousel>
   <div class="columns is-multiline">
     <div class="column is-two-thirds level" *ngIf="product.fields.image">
       <div class="level-item isDesktop" *ngFor="let image of product.fields.image">
@@ -26,4 +28,4 @@
     </div>
   </div>
 </section>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
