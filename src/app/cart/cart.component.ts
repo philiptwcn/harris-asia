@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
+import { Entry } from 'contentful';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
 
   items;
+  product: Entry<any>;
 
   constructor(
     private ContentfulService: ContentfulService,
@@ -18,6 +20,11 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+  }
+
+  removeItem(product) {
+    window.alert('Your product has been remove!');
+    this.cartService.removeItem(product);
   }
 
 }
