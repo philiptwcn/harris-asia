@@ -84,7 +84,7 @@ export class ContentfulService {
   getNewStoriesImage(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: DEFAULT_CONFIG.contentTypeIds.newStoriesImage,
-      order: 'sys.createdAt'
+      order: '-sys.createdAt'
     }, query))
     .then(res => res.items);
   }
