@@ -29,7 +29,7 @@ export class CartComponent implements OnInit, OnChanges {
 
     const items = dataChanges.currentValue;
     this.totalValue = 0;
-    items.forEach((items) => {
+    items.forEach((products) => {
       this.totalValue += items.fields.price;
     });
   }
