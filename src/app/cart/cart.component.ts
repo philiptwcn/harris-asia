@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges  } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
 import { CartService } from '../services/cart.service';
@@ -8,10 +8,12 @@ import { CartService } from '../services/cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.sass']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnChanges {
 
   items;
   product: Entry<any>;
+
+  totalValue = 0;
 
   constructor(
     private ContentfulService: ContentfulService,
@@ -20,6 +22,16 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.cartService.getItems();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const dataChanges: SimpleChange = changes.items;
+
+    const items = dataChanges.currentValue;
+    this.totalValue = 0;
+    items.forEach((items) => {
+      this.totalValue += items.fields.price;
+    });
   }
 
   removeItem(product) {
