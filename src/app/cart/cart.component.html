@@ -15,7 +15,7 @@
                 <p class="column is-2">{{item.fields.price | currency }}</p>
                 <input class="column is-1 input" type="number" name="quantity" id="quantity">
                 <!--<p class="column is-1">{{item.fields.quantity}}</p>!-->
-                <p class="column is-2">{{item.fields.price * quantity | currency }}</p>
+                <p class="column is-2">{{item.fields.price | currency }}</p>
                 <p class="column is-1 has-text-weight-bold" style="cursor: pointer" (click)="items.splice(i, 1)">X</p>
             </div>
         </div>
