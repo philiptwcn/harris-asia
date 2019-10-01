@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +12,19 @@ import { AuthService } from '../services/auth.service';
 
 export class NavbarComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  items;
+
+  constructor(
+    public auth: AuthService,
+    private cartService: CartService,
+    ) { }
 
   @ViewChild('navBurger', {static: true}) navBurger: ElementRef;
   @ViewChild('navMenu', {static: true}) navMenu: ElementRef;
   @ViewChild('drop', {static: true}) drop: ElementRef;
 
   ngOnInit() {
+    this.items = this.cartService.getItems();
   }
 
 

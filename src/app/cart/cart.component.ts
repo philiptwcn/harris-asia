@@ -25,18 +25,17 @@ export class CartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    const dataChanges: SimpleChange = changes.items;
-
-    const items = dataChanges.currentValue;
-    this.totalValue = 0;
-    items.forEach((products) => {
-      this.totalValue += items.fields.price;
-    });
   }
 
   removeItem(product) {
     window.alert('Your product has been remove!');
     this.cartService.removeItem(product);
+  }
+
+  get totalPrice() {
+    return this.items.reduce((p, c) => {
+        return p + c.fields.price;
+    }, 0);
   }
 
 }
