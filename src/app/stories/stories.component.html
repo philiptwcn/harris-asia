@@ -6,7 +6,7 @@
 </section>
 <section class="hero is-family-sans-serif" *ngFor="let stories of newStoriesImage; let i = index; let odd = odd; let even = even">
     <div class="hero-body columns" *ngFor="let image of stories.fields.heroBodyImage">
-        <div class="column is-3 has-text-white has-text-centered has-background-black" style="min-height: 30vh;max-height: 70vh;" *ngIf="even" [hidden]="even">
+        <div class="column is-3 has-text-white has-text-centered has-background-black" style="min-height: 30vh;max-height: 70vh;" *ngIf="even" [hidden]="odd">
             <div class="is-block" style="padding: 3rem">
                 <p>{{ stories.fields.subtitle }}</p>
                 <hr>
@@ -22,7 +22,7 @@
                 background-repeat: no-repeat;
                 display: flex">
         </div>
-        <div class="column is-3 has-text-white has-text-centered has-background-black" style="min-height: 30vh;max-height: 70vh;" *ngIf="odd" [hidden]="odd">
+        <div class="column is-3 has-text-white has-text-centered has-background-black" style="min-height: 30vh;max-height: 70vh;" *ngIf="odd" [hidden]="even">
             <div class="is-block" style="padding: 3rem">
                 <p>{{ stories.fields.subtitle }}</p>
                 <hr>
