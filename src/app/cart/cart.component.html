@@ -23,7 +23,7 @@
         </div>
         <div class="column is-1"></div>
         <div class="column is-3">
-            <aside class="menu">
+            <aside class="menu is-family-sans-serif">
                 <p class="menu-label is-capitalized is-size-3">
                 order summary
                 </p>
@@ -34,15 +34,41 @@
                 <li><a>shipping</a></li>
                 <li><a>Shipping cost</a></li>
                 <li><a>Sales Tax</a></li>
-                </ul>
-                
-                <p class="menu-label is-capitalized is-size-3">
-                total
+                </ul>                
+                <p class="menu-label is-capitalized is-size-4">
+                總結
                 </p>
                 <ul class="menu-list">
                 <li>{{ totalPrice | currency}}</li>
                 </ul>
-                <button class="button is-dark is-capitalized">checkout</button>
+                <div *ngIf="auth.user$ | async; then authenticated else guest">
+                    <!-- template will replace this div -->
+                </div>
+                <!-- User NOT logged in -->
+                <ng-template #guest>
+                    <button class="button is-dark is-capitalized" disabled style="margin-top: 3rem">請登錄</button>
+                </ng-template>
+                <!-- User logged in -->
+                <ng-template #authenticated>
+                        <button class="button is-dark is-capitalized" (click)="toggleModal()" style="margin-top: 3rem">結帳</button>
+                        <div class="modal" [ngClass]="{ 'is-active' : isModalActive }" style="padding: 3rem">
+                            <div class="modal-background" (click)="toggleModal()"></div>
+                            <div class="modal-content">
+                                <div class="container">
+                                    <p class="is-size-4">總結</p>
+                                    <p class="is-size-4">{{ totalPrice | currency}}</p>
+                                    <p class="is-size-5">明細</p>
+                                    <div *ngFor="let item of items; let i = index">
+                                        <p>{{ item.fields.productName }},{{ item.fields.color }}</p>
+                                    </div>
+                                    
+                                    <img src="/assets/img/10348192265619_1.jpg" alt="" style="margin: 2rem 0 2rem 0">
+                                    <p>請將款項匯入此支付寶帳戶，並備註用戶名<br>我們將盡快為您服務</p>
+                                </div>
+                            </div>
+                            <button class="modal-close is-large" aria-label="close" (click)="toggleModal()"></button>
+                        </div>
+                </ng-template>
             </aside>
         </div>
     </div>

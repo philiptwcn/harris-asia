@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange, SimpleChanges  } from '@angular/core';
+import { Component, OnInit, OnChanges, ViewChild, ElementRef } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
 import { Entry } from 'contentful';
+import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -17,14 +18,17 @@ export class CartComponent implements OnInit, OnChanges {
 
   constructor(
     private ContentfulService: ContentfulService,
+    public auth: AuthService,
     private cartService: CartService,
   ) { }
+
+  isModalActive = false;
 
   ngOnInit() {
     this.items = this.cartService.getItems();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges() {
   }
 
   removeItem(product) {
@@ -36,6 +40,10 @@ export class CartComponent implements OnInit, OnChanges {
     return this.items.reduce((p, c) => {
         return p + c.fields.price;
     }, 0);
+  }
+
+  toggleModal() {
+    this.isModalActive = !this.isModalActive;
   }
 
 }

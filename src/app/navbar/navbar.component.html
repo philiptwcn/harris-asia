@@ -87,7 +87,7 @@
           <p class="has-text-white">嗨， {{ user.displayName }}</p>
           <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
           <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-            </fa-icon>CART</button>
+            </fa-icon>({{items.length}})</button>
           <!--<p>UID: {{ user.uid }}</p>-->
           <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
         </div>
