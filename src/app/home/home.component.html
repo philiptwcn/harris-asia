@@ -1,6 +1,6 @@
 
 <div class="has-background-black">
-    <video class="hero container" autoplay muted loop *ngIf="asset">
+    <video class="hero" preload="metadata" playsinline autoplay muted loop width="100%" *ngIf="asset">
       <source src="{{'https:' + asset.fields.file.url}}" type="video/mp4" />
     </video> 
 </div>
