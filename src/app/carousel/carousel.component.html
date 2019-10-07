@@ -1,13 +1,20 @@
-<section>
-	<div class="carousel slide" *ngIf="product">
-		
-		<ngb-carousel #carousel interval="3000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)" *ngIf="product.fields.image" style="background-color: black">
-			<ng-template ngbSlide *ngFor="let image of product.fields.image; index as i">
-				<div class="img-wrapper">
-					<img src="{{ image.fields.file.url }}" alt="My image {{i + 1}} description" class="image container">
-				</div>
-			</ng-template>
-		</ngb-carousel>			
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+<section *ngIf="product">
+	<!-- Slider main container -->
+	<div class="swiper-container" *ngIf="product.fields.image">
+		<!-- Additional required wrapper -->
+		<div class="swiper-wrapper" *ngFor="let image of product.fields.image; index as i">
+			<!-- Slides -->
+			<div 
+			class="swiper-slide" 
+			[ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
+			style="background-size: contain; background-repeat: no-repeat;background-position: center"
+			>
+			</div>
+		</div>
+		<!-- If we need navigation buttons -->
+		<div class="swiper-button-prev" style="color: black"></div>
+		<div class="swiper-button-next" style="color: black"></div>
 	</div>
 </section>
+
+
