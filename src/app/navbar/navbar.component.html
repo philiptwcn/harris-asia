@@ -1,15 +1,16 @@
-<div class="navbar-brand is-paddingless">
-  <a class="navbar-item" routerLink="">
-    <img src="assets/img/logo_i.svg" width="112" height="28">
-  </a>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+<div class="navbar-brand is-marginless">
+  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" style="float: left;">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
   </div>
+  <a class="navbar-item container" routerLink="">
+    <img src="assets/img/logo_i.svg" width="112" height="28">
+  </a>
+  <button class="navbar-burger burger button is-black is-marginless" routerLink='/users/cart'>
+    <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+        </fa-icon>({{items.length}})</button>
 </div>
-<br>
 <div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
     <a class="navbar-item has-text-white" routerLink="about/aboutus">

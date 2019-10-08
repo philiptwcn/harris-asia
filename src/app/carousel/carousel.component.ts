@@ -18,7 +18,6 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   constructor(
     private ContentfulService: ContentfulService,
     private route: ActivatedRoute,
-    private elementRef: ElementRef
   ) {}
 
   ngOnInit() {
@@ -29,14 +28,11 @@ export class CarouselComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.mySwiper = new Swiper('.swiper-container', {
-        direction: 'horizontal',
-        loop: true,
-        // 如果需要前进后退按钮
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
-}
+  }
 
 }

@@ -1,6 +1,6 @@
-<section *ngIf="product">
+<div *ngIf="product">
 	<!-- Slider main container -->
-	<div class="swiper-container" *ngIf="product.fields.image">
+	<div class="swiper-container" *ngIf="product.fields.image" mySwiper>
 		<!-- Additional required wrapper -->
 		<div class="swiper-wrapper" *ngFor="let image of product.fields.image; index as i">
 			<!-- Slides -->
@@ -15,6 +15,6 @@
 		<div class="swiper-button-prev" style="color: black"></div>
 		<div class="swiper-button-next" style="color: black"></div>
 	</div>
-</section>
+</div>
 
 
