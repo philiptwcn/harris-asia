@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/modules/core.module';
 
@@ -39,7 +37,6 @@ import { ContentfulService } from './services/contentful.service';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbCarouselModule,
     CoreModule,
   ],
   exports: [
