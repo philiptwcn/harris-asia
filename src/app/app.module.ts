@@ -18,6 +18,8 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { CarouselComponent } from './carousel/carousel.component';
 
 import { ContentfulService } from './services/contentful.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -38,6 +40,7 @@ import { ContentfulService } from './services/contentful.service';
     HttpClientModule,
     FontAwesomeModule,
     CoreModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   exports: [
   ],
