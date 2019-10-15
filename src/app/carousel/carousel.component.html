@@ -2,10 +2,10 @@
 	<!-- Slider main container -->
 	<div class="swiper-container" *ngIf="product.fields.image" mySwiper>
 		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper" *ngFor="let image of product.fields.image; index as i">
+		<div class="swiper-wrapper" *ngFor="let image of product.fields.image">
 			<!-- Slides -->
 			<div 
-			class="swiper-slide" 
+			class="swiper-slide image" 
 			[ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
 			style="background-size: contain; background-repeat: no-repeat;background-position: center"
 			>
@@ -13,7 +13,7 @@
 		</div>
 		<!-- If we need navigation buttons -->
 		<div class="swiper-button-prev" style="color: black"></div>
-		<div class="swiper-button-next" style="color: black"></div>
+		<div class="swiper-button-next" style="color: black" (click)="mySwiper.slideNext()"></div>
 	</div>
 </div>
 

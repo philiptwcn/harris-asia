@@ -12,7 +12,7 @@
         </fa-icon>({{items.length}})</button>
 </div>
 <div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
-  <div class="navbar-start">
+  <div class="navbar-start is-marginless" style="width: 20vw;">
     <a class="navbar-item has-text-white" routerLink="about/aboutus">
       關於我們
     </a>
@@ -58,7 +58,10 @@
       最新消息
     </a>
   </div>
-  <div class="navbar-end">
+  <a class="navbar-item logo" routerLink="" style="margin-left: auto; margin-right: auto;">
+    <img src="assets/img/logo_i.svg" width="112" height="28">
+  </a>
+  <div class="navbar-end is-marginless" style="width: 20vw;">
     <div *ngIf="auth.user$ | async; then authenticated else guest">
     <!-- template will replace this div -->
     </div>
