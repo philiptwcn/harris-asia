@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContentfulService } from '../../services/contentful.service';
 
-import { AboutUsComponent } from '../../about/about-us/about-us.component';
+import { AboutComponent } from '../../about/about.component';
 import { OurStoriesComponent } from '../../about/our-stories/our-stories.component';
 import { OurIdeaComponent } from '../../about/our-idea/our-idea.component';
 import { EuFashionComponent } from '../../about/eu-fashion/eu-fashion.component';
@@ -18,7 +18,7 @@ import { FutureComponent } from '../../about/future/future.component';
 const routes: Routes = [
   {
     path: 'aboutus',
-    component: AboutUsComponent
+    component: AboutComponent
   },
   {
     path: 'ourstories',
@@ -44,7 +44,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AboutUsComponent,
+    AboutComponent,
     OurStoriesComponent,
     OurIdeaComponent,
     OurIdeaComponent,
