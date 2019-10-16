@@ -17,4 +17,34 @@
 	</div>
 </div>
 
+<mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="true"
+  interval="5000"
+  color="primary"
+  maxWidth="auto"
+  proportion="25"
+  slides="5"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="true"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+>
+
+	<div *ngIf="product">
+		<div *ngIf="product.fields.image">
+			<mat-carousel-slide
+				#matCarouselSlide
+				*ngFor="let image of product.fields.image; let i = index"
+				[ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
+				style="background-size: contain; background-repeat: no-repeat;background-position: center"
+				overlayColor="#00000040"
+				[hideOverlay]="true"
+			></mat-carousel-slide>
+		</div>
+	</div>
+</mat-carousel>
+
 
