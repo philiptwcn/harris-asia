@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faAward } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +50,6 @@ import { environment } from '../environments/environment';
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faShoppingBag);
+    library.addIcons(faShoppingBag, faAward);
   }
 }

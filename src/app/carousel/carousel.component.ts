@@ -28,14 +28,24 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.mySwiper = new Swiper(this.elementRef.nativeElement.querySelector('.swiper-container'), {
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+    setTimeout (function() {
+      this.mySwiper = new Swiper('.swiper-container');
+    }, 0);
+    setTimeout (function() {
+      this.mySwiper = new Swiper('.swiper-container', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     });
+  }
+
+  slideNext() {
+    this.mySwiper = document.querySelector('.swiper-container');
+
     // Now you can use all slider methods like
-    this.mySwiper.navigation.update();
+    this.mySwiper.slideNext();
   }
 
 }

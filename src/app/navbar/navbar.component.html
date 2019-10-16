@@ -12,7 +12,7 @@
         </fa-icon>({{items.length}})</button>
 </div>
 <div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
-  <div class="navbar-start is-marginless" style="width: 40vw;">
+  <div class="navbar-start">
     <a class="navbar-item has-text-white" routerLink="about/aboutus">
       關於我們
     </a>
@@ -61,7 +61,7 @@
   <a class="navbar-item logo" routerLink="" style="margin-left: auto; margin-right: auto;">
     <img src="assets/img/logo_i.svg" width="112" height="28">
   </a>
-  <div class="navbar-end is-marginless" style="width: 40vw;">
+  <div class="navbar-end">
     <div *ngIf="auth.user$ | async; then authenticated else guest">
     <!-- template will replace this div -->
     </div>
@@ -90,6 +90,8 @@
         <div class="navbar-item is-family-sans-serif">
           <p class="has-text-white">嗨， {{ user.displayName }}</p>
           <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
+          <button class="button is-black" routerLink='/users/auth'><fa-icon [icon]="['fas','award']" class="icon is-small" style="padding-right: .5rem">
+          </fa-icon></button>
           <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
             </fa-icon>({{items.length}})</button>
           <!--<p>UID: {{ user.uid }}</p>-->

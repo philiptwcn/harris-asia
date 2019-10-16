@@ -11,6 +11,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 
 import { LoginFormComponent } from '../../forms/login-form/login-form.component';
 import { RegisterFormComponent } from '../../forms/register-form/register-form.component';
+import { AuthFormComponent } from '../../forms/auth-form/auth-form.component';
 import { CartComponent } from '../../cart/cart.component';
 
 
@@ -25,6 +26,10 @@ const routes: Routes = [
     component: RegisterFormComponent
   },
   {
+    path: 'auth',
+    component: AuthFormComponent
+  },
+  {
     path: 'cart',
     component: CartComponent
   },
@@ -34,6 +39,7 @@ const routes: Routes = [
   declarations: [
     LoginFormComponent,
     RegisterFormComponent,
+    AuthFormComponent,
     CartComponent,
   ],
   imports: [
