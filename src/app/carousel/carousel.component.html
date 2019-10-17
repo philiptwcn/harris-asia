@@ -1,29 +1,12 @@
-<div *ngIf="product">
-	<!-- Slider main container -->
-	<div class="swiper-container" *ngIf="product.fields.image" mySwiper>
-		<!-- Additional required wrapper -->
-		<div class="swiper-wrapper" *ngFor="let image of product.fields.image">
-			<!-- Slides -->
-			<div 
-			class="swiper-slide image" 
-			[ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
-			style="background-size: contain; background-repeat: no-repeat;background-position: center"
-			>
-			</div>
-		</div>
-		<!-- If we need navigation buttons -->
-		<div class="swiper-button-prev" style="color: black"></div>
-		<div class="swiper-button-next" style="color: black" (click)="slideNext()"></div>
-	</div>
-</div>
+
 
 <mat-carousel
   timings="250ms ease-in"
   [autoplay]="true"
   interval="5000"
-  color="primary"
+  color="basic"
   maxWidth="auto"
-  proportion="25"
+  proportion="90"
   slides="5"
   [loop]="true"
   [hideArrows]="false"
@@ -38,8 +21,7 @@
 			<mat-carousel-slide
 				#matCarouselSlide
 				*ngFor="let image of product.fields.image; let i = index"
-				[ngStyle]="{'background-image': 'url(' + image.fields.file.url + ')'}"
-				style="background-size: contain; background-repeat: no-repeat;background-position: center"
+				[image]="image.fields.file.url "
 				overlayColor="#00000040"
 				[hideOverlay]="true"
 			></mat-carousel-slide>
