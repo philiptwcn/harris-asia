@@ -4,31 +4,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContentfulService } from '../../services/contentful.service';
 
-import { LeagueComponent } from '../../about/leather/league/league.component';
-import { TechIntroComponent } from '../../about/leather/tech-intro/tech-intro.component';
-import { CertifComponent } from '../../about/leather/certif/certif.component';
+import { LeatherComponent } from '../../leather/leather.component';
 
 
 const routes: Routes = [
   {
-    path: 'league',
-    component: LeagueComponent
-  },
-  {
-    path: 'intro',
-    component: TechIntroComponent
-  },
-  {
-    path: 'certif',
-    component: CertifComponent
+    path: 'technique',
+    component: LeatherComponent
   },
 ];
 
 @NgModule({
   declarations: [
-    LeagueComponent,
-    TechIntroComponent,
-    CertifComponent,
+    LeatherComponent,
   ],
   imports: [
     CommonModule,
