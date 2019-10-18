@@ -35,6 +35,9 @@ export class NavbarComponent implements OnInit {
   toggleDrop() {
     this.drop.nativeElement.classList.remove('is-active');
   }
+  closeNavbar() {
+    this.navMenu.nativeElement.classList.remove('is-active');
+  }
 
 
 }
