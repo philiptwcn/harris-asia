@@ -1,1 +1,38 @@
-auth works
+<section class="hero" style="min-height: 72vh;">
+    <div class="container has-text-black">
+        <div class="field is-family-sans-serif">
+            <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
+                <label class="is-size-5">產品防偽鑑別</label>
+            </div>
+            <div class="field">
+                <div class="label is-normal">
+                    <label for="email">防偽碼</label>
+                </div>
+                <div class="">
+                    <p class="control is-expanded has-icons-left">
+                            <fa-icon [icon]="['fas','envelope']" class="icon is-small is-left">
+                            </fa-icon>
+                        <input class="input is-rounded" type="email" formControlName="email" required>
+                    </p>
+                </div>
+            </div>
+            <div class="field" style="margin-top: 2rem">
+                <div class="label is-normal">
+                    <label for="password">驗證碼</label>
+                </div>
+                <div class="">
+                    <div class="content control is-expanded has-icons-left">
+                        <input class="input is-rounded" type="password" formControlName="password" required>
+                        <fa-icon [icon]="['fas','lock']" class="icon is-small is-left"></fa-icon>
+                    </div>
+                </div>                        
+            </div>
+            
+            <div class="control is-right" style="margin-top: 2rem">
+                <button class="button is-pulled-right is-rounded" type="submit">
+                    送出
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
