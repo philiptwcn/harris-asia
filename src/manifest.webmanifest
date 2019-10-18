@@ -3,7 +3,7 @@
   "short_name": "harris-asia",
   "theme_color": "#000000",
   "background_color": "#fafafa",
-  "display": "fullscreen",
+  "display": "minimal-ui",
   "scope": "/",
   "start_url": "/",
   "icons": [
