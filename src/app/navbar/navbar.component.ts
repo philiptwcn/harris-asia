@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit {
     this.drop.nativeElement.classList.remove('is-active');
   }
   closeNavbar() {
+    this.navBurger.nativeElement.classList.remove('is-active');
     this.navMenu.nativeElement.classList.remove('is-active');
   }
 
