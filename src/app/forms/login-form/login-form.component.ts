@@ -52,7 +52,11 @@ export class LoginFormComponent implements OnInit {
   loading = false;
   success = false;
 
-  constructor(private afs: AngularFirestore, public fb: FormBuilder, public auth: AuthService) { }
+  constructor(
+    private afs: AngularFirestore,
+    public fb: FormBuilder,
+    public auth: AuthService
+    ) { }
 
   ngOnInit() {
 
