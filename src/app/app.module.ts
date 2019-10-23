@@ -24,6 +24,8 @@ import { environment } from '../environments/environment';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
+
 
 
 
@@ -45,6 +47,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MatCarouselModule.forRoot(),
+    RecaptchaFormsModule,
+    RecaptchaModule,
   ],
   exports: [
   ],

@@ -42,22 +42,3 @@
         <p>請登入後再行驗證</p>
     </ng-template>    
 </section>
-<script src="https://www.google.com/recaptcha/api.js?render=6Ld5A78UAAAAAEhORKv5_RITym4UXiEx1Xa7GlXq"></script>
-<script>
-    grecaptcha.ready(function () {
-        console.log('1. grecaptcha.ready');
-        console.log('2. grecaptcha.execute("6Ld5A78UAAAAAEhORKv5_RITym4UXiEx1Xa7GlXq", { action: "@Url.Action("VerifyBot", "Account")" })');
-          grecaptcha.execute('6Ld5A78UAAAAAEhORKv5_RITym4UXiEx1Xa7GlXq', { action: '@Url.Action("VerifyBot", "Account")' }).then((token) => {
-              console.log('3. Get token from reCAPTCHA service => ', token);
-              console.log('4. Verifying Bot...');
-              $.ajax({
-                  type: 'POST',
-                  url: '@Url.Action("VerifyBot", "Account")',
-                  data: { token: token },
-                  success: (res) => {
-                      console.log('5. Return => ', res);
-                  }
-              });
-          });
-    });
-</script>
