@@ -9,6 +9,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth.service';
 
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+
 import { NotifyService } from '../../services/notify.service';
 
 export const firebaseConfig = {
@@ -31,9 +33,14 @@ export const firebaseConfig = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
+    RecaptchaV3Module,
   ],
   exports: [
   ],
-  providers: [AuthService, NotifyService],
+  providers: [
+    AuthService,
+    NotifyService,
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Le_J78UAAAAADq-uMTYDQjL7uJHmEumS3jh5gjo' },
+  ],
 })
 export class CoreModule { }

@@ -33,12 +33,12 @@ export class AuthFormComponent implements OnInit, OnDestroy {
       this.singleExecutionSubscription = this.recaptchaV3Service.execute(action)
         .subscribe((token) => this.recentToken = token);
     }
-  
+
     public ngOnInit() {
       this.allExecutionsSubscription = this.recaptchaV3Service.onExecute
         .subscribe((data) => this.executionLog.push(data));
     }
-  
+
     public ngOnDestroy() {
       if (this.allExecutionsSubscription) {
         this.allExecutionsSubscription.unsubscribe();
@@ -47,12 +47,11 @@ export class AuthFormComponent implements OnInit, OnDestroy {
         this.singleExecutionSubscription.unsubscribe();
       }
     }
-  
+
     public formatToken(token: string): string {
       if (!token) {
         return '(empty)';
       }
-  
       return `${token.substr(0, 7)}...${token.substr(-7)}`;
     }
   }

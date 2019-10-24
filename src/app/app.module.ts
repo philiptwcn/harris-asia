@@ -24,7 +24,6 @@ import { environment } from '../environments/environment';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
-import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 
 
 
@@ -47,13 +46,11 @@ import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MatCarouselModule.forRoot(),
-    RecaptchaV3Module,
   ],
   exports: [
   ],
   providers: [
     ContentfulService,
-    { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Le_J78UAAAAADq-uMTYDQjL7uJHmEumS3jh5gjo' },
   ],
   bootstrap: [AppComponent]
 })
