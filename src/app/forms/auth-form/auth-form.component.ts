@@ -8,12 +8,30 @@ import { User} from '../../services/user.model';
 import { OnExecuteData, ReCaptchaV3Service } from 'ng-recaptcha';
 import { Subscription } from 'rxjs';
 
+export class CodeValidator {
+  static code(afs: AngularFirestore) {
+    return (control: AbstractControl) => {
+
+      const code = control.value;
+
+      return afs.collection('security_code', ref => ref.where('code', '==', code) )
+
+        .valueChanges().pipe(
+          map(arr => arr.length ? null : { codeMatch: false } ),
+        );
+    };
+  }
+}
+
 @Component({
   selector: 'app-auth-form',
   templateUrl: './auth-form.component.html',
   styleUrls: ['./auth-form.component.sass']
 })
 export class AuthFormComponent implements OnInit, OnDestroy {
+
+  authForm: FormGroup;
+
   public recentToken: string = '';
   public readonly executionLog: OnExecuteData[] = [];
 
@@ -22,6 +40,7 @@ export class AuthFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private afs: AngularFirestore,
+    public fb: FormBuilder,
     public auth: AuthService,
     private recaptchaV3Service: ReCaptchaV3Service,
     ) { }
@@ -37,6 +56,17 @@ export class AuthFormComponent implements OnInit, OnDestroy {
     public ngOnInit() {
       this.allExecutionsSubscription = this.recaptchaV3Service.onExecute
         .subscribe((data) => this.executionLog.push(data));
+
+      this.authForm = this.fb.group({
+        code: ['', [
+          Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
+          Validators.minLength(6),
+          Validators.maxLength(25),
+          Validators.required,
+          ],
+          CodeValidator.code(this.afs)
+        ],
+      });
     }
 
     public ngOnDestroy() {
@@ -54,4 +84,6 @@ export class AuthFormComponent implements OnInit, OnDestroy {
       }
       return `${token.substr(0, 7)}...${token.substr(-7)}`;
     }
+
+    get code() { return this.authForm.get('code'); }
   }

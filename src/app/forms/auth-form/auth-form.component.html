@@ -1,20 +1,25 @@
-<section class="hero" style="min-height: 72vh;">
+<section class="hero has-background-white-ter" style="min-height: 72vh;">
     <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
     <ng-template #authenticated>
         <div class="container has-text-black" *ngIf="auth.user$ | async as user">
             <div class="field is-family-sans-serif">
                 <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
-                    <label class="is-size-5">產品防偽鑑別</label>
+                    <p class="is-size-3">
+                        產品防偽鑑別
+                    </p>
+                    <p class="is-size-6">
+                        The only authentic platform for Harris security code checking
+                    </p>
                 </div>
                 <div class="field">
                     <div class="label is-normal">
-                        <label for="security">防偽碼</label>
+                        <label for="code">防偽碼</label>
                     </div>
                     <div class="">
                         <p class="control is-expanded has-icons-left">
                                 <fa-icon [icon]="['fas','lock']" class="icon is-small is-left">
                                 </fa-icon>
-                            <input class="input is-rounded" type="security">
+                            <input class="input is-rounded" type="code">
                         </p>
                     </div>
                 </div>
