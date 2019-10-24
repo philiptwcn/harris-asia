@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-story.module#LazyStoryModule'
   },
   {
+    path: 'iniusers',
+    loadChildren: './core/modules/init-user.module#InitUserModule'
+  },
+  {
     path: 'users',
     loadChildren: './core/modules/form.module#FormModule'
   },

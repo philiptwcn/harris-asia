@@ -68,7 +68,7 @@
     <!-- User NOT logged in -->
     <ng-template #guest>
       <div class="navbar-item">
-        <button class="button is-black" routerLink='/users/cart'>
+        <button class="button is-black" routerLink='/iniusers/cart'>
           <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
               </fa-icon>({{items.length}})</button>
       </div>
@@ -78,7 +78,7 @@
             <a class="button is-dark" routerLink="users/login">
               登錄
             </a>
-            <a class="button is-light" routerLink="users/register">
+            <a class="button is-light" routerLink="iniusers/register">
               <strong>註冊</strong>
             </a>
           </div>
@@ -92,7 +92,7 @@
           <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
           <button class="button is-black" routerLink='/users/auth'><fa-icon [icon]="['fas','award']" class="icon is-small" style="padding-right: .5rem">
           </fa-icon></button>
-          <button class="button is-black" routerLink='/users/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+          <button class="button is-black" routerLink='/iniusers/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
             </fa-icon>({{items.length}})</button>
           <!--<p>UID: {{ user.uid }}</p>-->
           <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
