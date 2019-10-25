@@ -5,20 +5,28 @@
     <div class="columns">
         <div class="column is-1"></div>
         <div class="column is-7">
-            <div class="box columns is-multiline" *ngFor="let item of items; let i = index">
-                <p class="column is-12 is-size-5">{{ item.fields.productName }}</p>
-                <img class="column is-3" src="{{ item.fields.image[0].fields.file.url }}" alt="">
-                <div class="column is-3">
-                    <p>{{ item.fields.color }}</p>
-                    <p>{{ item.fields.size }}</p>
+            <div class="box columns is-multiline is-mobile" *ngFor="let item of items; let i = index" style="margin-top: 2rem;">
+                <p class="column is-12 is-size-5" [routerLink]="['/products', item.fields.slug]" style="cursor: pointer;">{{ item.fields.productName }}</p>
+                <div
+                class="column is-4"
+                [ngStyle]="{'background-image': 'url(' + item.fields.image[0].fields.file.url + ')'}"
+                style=" background-repeat: no-repeat; background-size: contain;">
                 </div>
-                <p class="column is-2">{{item.fields.price | currency }}</p>
-            <!--<input class="column is-1 input" type="number" name="quantity" #quantity ng-bind="quantity" step="1" value="1">
-                <p class="column is-1">{{item.fields.quantity}}</p>!
-                <p class="column is-2">{{item.fields.price * quantity.value | currency }}</p>-->
-                <div class="column is-1 has-text-weight-bold">
-                    <p style="cursor: pointer" (click)="items.splice(i, 1)">X</p>
-                </div>                
+                <div class="column is-8">
+                    <div class="columns">
+                        <div class="column is-5">
+                        <p>{{ item.fields.color }}</p>
+                        <p>{{ item.fields.size }}</p>
+                        </div>
+                        <p class="column is-5">{{item.fields.price | currency }}</p>
+                    <!--<input class="column is-1 input" type="number" name="quantity" #quantity ng-bind="quantity" step="1" value="1">
+                        <p class="column is-1">{{item.fields.quantity}}</p>!
+                        <p class="column is-2">{{item.fields.price * quantity.value | currency }}</p>-->
+                        <div class="column is-2 has-text-weight-bold">
+                            <p style="cursor: pointer" (click)="items.splice(i, 1)">X</p>
+                        </div>
+                    </div>
+                </div>                                
             </div>
         </div>
         <div class="column is-1"></div>
