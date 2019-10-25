@@ -4,16 +4,21 @@
 <div class="section has-background-white-ter">
     <div class="columns">
         <div class="column is-1"></div>
-        <div class="column is-7">
-            <div class="box columns is-multiline is-mobile" *ngFor="let item of items; let i = index" style="margin-top: 2rem;">
-                <p class="column is-12 is-size-5" [routerLink]="['/products', item.fields.slug]" style="cursor: pointer;">{{ item.fields.productName }}</p>
+        <div class="column is-7 is-family-sans-serif">
+            <div class="box columns is-multiline is-mobile is-vcentered" *ngFor="let item of items; let i = index" style="margin-top: 2rem;">
+                <p
+                class="column is-12 is-size-5 has-text-weight-bold "
+                [routerLink]="['/products', item.fields.slug]"
+                style="cursor: pointer;">
+                    {{ item.fields.productName }}
+                </p>
                 <div
-                class="column is-4"
+                class="column is-5"
                 [ngStyle]="{'background-image': 'url(' + item.fields.image[0].fields.file.url + ')'}"
-                style=" background-repeat: no-repeat; background-size: contain;">
+                style="min-height: 20vh;; background-repeat: no-repeat; background-size: contain;">
                 </div>
-                <div class="column is-8">
-                    <div class="columns">
+                <div class="column is-7">
+                    <div class="columns has-text-right">
                         <div class="column is-5">
                         <p>{{ item.fields.color }}</p>
                         <p>{{ item.fields.size }}</p>
