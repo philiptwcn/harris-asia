@@ -65,6 +65,9 @@ export class AuthFormComponent implements OnInit, OnDestroy {
 
     this.authForm = this.fb.group({
       code: ['', [
+        Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
+        Validators.minLength(6),
+        Validators.maxLength(25),
         Validators.required,
         ],
         CodeValidator.code(this.afs)

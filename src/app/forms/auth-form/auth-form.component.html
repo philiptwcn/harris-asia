@@ -12,16 +12,16 @@
                             The only authentic platform for<br>Harris' security code checking
                         </p>
                     </div>
-                    <div class="field">
+                    <div class="field" style="margin: 3rem">
                         <div class="label is-normal">
                             <label for="code">防偽碼</label>
                         </div>
                         <div class="">
-                            <p class="control is-expanded has-icons-left">
+                            <div class="control is-expanded has-icons-left">
                                     <fa-icon [icon]="['fas','lock']" class="icon is-small is-left">
                                     </fa-icon>
                                 <input class="input is-rounded" type="code" formControlName="code" required>
-                            </p>
+                            </div>
                             <!--<div *ngIf="code.invalid && code.dirty" class="label help is-normal is-danger">
                                 <label for="invalidCode">
                                     {{ code.value }}錯誤
@@ -37,7 +37,7 @@
                             </div>-->
                         </div>
                     </div>                
-                    <div class="control is-right" style="margin-top: 2rem">
+                    <div class="control is-right" style="margin: 3rem">
                         <button class="button is-pulled-right is-rounded" type="submit">
                             送出
                         </button>
@@ -45,14 +45,21 @@
                 </div>
             </div>
         </form>
-        <div *ngIf="success">
+        <div *ngIf="success" class="container" style="margin: 2rem">
             <div *ngIf="code.valid" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
+                    <fa-icon [icon]="['far','check-circle']" size="7x" [styles]="{'stroke': 'MediumSpringGreen', 'color': 'MediumSpringGreen'}" class="icon is-large">
+                        </fa-icon>
                 <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">驗證成功</p>
+                <p>您輸入的驗證碼正確，感謝您購買官方正貨。</p>
             </div>
             <div *ngIf="code.invalid && code.dirty" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
+                <fa-icon [icon]="['far','times-circle']" size="7x" [styles]="{'stroke': 'PaleVioletRed', 'color': 'PaleVioletRed '}" class="icon is-large">
+                    </fa-icon>
                 <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">驗證失敗</p>
-                <p>This security code DOES NOT EXIST, beware of inauthentic product.</p>
-                <p>The security code you are checking is {{ code.value }}</p>
+                <p>您輸入的驗證碼{{ code.value }}不存在<br>請協助我們杜絕仿冒。</p>
+            </div>
+            <div class="container">
+                <button class="button is-black is-rounded is-fullwidth" routerLink = "/">回到首頁</button>
             </div>
         </div>       
     </ng-template>
