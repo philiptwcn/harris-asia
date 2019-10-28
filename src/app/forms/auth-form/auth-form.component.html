@@ -1,52 +1,62 @@
 <section class="hero has-background-white-ter" style="min-height: 72vh;">
     <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
     <ng-template #authenticated>
-        <div class="container has-text-black" *ngIf="auth.user$ | async as user">
-            <div class="field is-family-sans-serif">
-                <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
-                    <p class="is-size-3">
-                        產品防偽鑑別
-                    </p>
-                    <p class="is-size-6">
-                        The only authentic platform for<br>Harris' security code checking
-                    </p>
-                </div>
-                <div class="field">
-                    <div class="label is-normal">
-                        <label for="code">防偽碼</label>
-                    </div>
-                    <div class="">
-                        <p class="control is-expanded has-icons-left">
-                                <fa-icon [icon]="['fas','lock']" class="icon is-small is-left">
-                                </fa-icon>
-                            <input class="input is-rounded" type="security">
+        <form  [formGroup]="authForm" (ngSubmit)="authSummit()" *ngIf="!success">
+            <div class="container has-text-black" *ngIf="auth.user$ | async as user">
+                <div class="field is-family-sans-serif">
+                    <div class="has-text-centered has-text-weight-semibold" style="margin: 3rem">
+                        <p class="is-size-3">
+                            產品防偽鑑別
+                        </p>
+                        <p class="is-size-6">
+                            The only authentic platform for<br>Harris' security code checking
                         </p>
                     </div>
-                </div>
-                <!--<div class="field" style="margin-top: 2rem">
-                    <div class="label is-normal">
-                        <label for="valid">驗證碼</label>
-                    </div>
-                    <div class="">
-                        <div class="content control is-expanded has-icons-left">
-                            <input class="input is-rounded" type="valid">
-                            <fa-icon [icon]="['fas','lock']" class="icon is-small is-left"></fa-icon>
+                    <div class="field">
+                        <div class="label is-normal">
+                            <label for="code">防偽碼</label>
                         </div>
-                    </div>                        
-                </div>-->
-                
-                <div class="control is-right" style="margin-top: 2rem">
-                    <button class="button is-pulled-right is-rounded" type="submit" (click)="executeAction('security_verify')">
-                        送出
-                    </button>
+                        <div class="">
+                            <p class="control is-expanded has-icons-left">
+                                    <fa-icon [icon]="['fas','lock']" class="icon is-small is-left">
+                                    </fa-icon>
+                                <input class="input is-rounded" type="code" formControlName="code" required>
+                            </p>
+                            <!--<div *ngIf="code.invalid && code.dirty" class="label help is-normal is-danger">
+                                <label for="invalidCode">
+                                    {{ code.value }}錯誤
+                                </label> 
+                            </div>
+                            <div *ngIf="code.valid"  class="label is-normal help is-success">
+                                <label for="validCode">
+                                    {{ code.value }} 正確
+                                </label>
+                            </div>
+                            <div *ngIf="code.pending" class="label is-normal help is-info">
+                                Hold tight... 確認 {{ code.value }}
+                            </div>-->
+                        </div>
+                    </div>                
+                    <div class="control is-right" style="margin-top: 2rem">
+                        <button class="button is-pulled-right is-rounded" type="submit">
+                            送出
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--<div *ngIf="security_code" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
-                <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">帳號登錄成功</p>
-            </div>-->
+        </form>
+        <div *ngIf="success">
+            <div *ngIf="code.valid" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
+                <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">驗證成功</p>
+            </div>
+            <div *ngIf="code.invalid && code.dirty" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
+                <p class="is-size-5 is-family-sans-serif" style="margin-bottom: 2rem">驗證失敗</p>
+                <p>This security code DOES NOT EXIST, beware of inauthentic product.</p>
+                <p>The security code you are checking is {{ code.value }}</p>
+            </div>
+        </div>       
     </ng-template>
     <ng-template #guest>
         <p>請登入後再行驗證</p>
-    </ng-template>    
+    </ng-template> 
 </section>

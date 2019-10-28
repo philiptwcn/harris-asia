@@ -14,9 +14,11 @@ export class CodeValidator {
 
       const code = control.value;
 
-      return afs.collection('security_code', ref => ref.where('code', '==', code) )
+      return afs.collection('securityCodes', ref => ref.where('code', '==', code) )
 
         .valueChanges().pipe(
+          debounceTime(500),
+          take(1),
           map(arr => arr.length ? null : { codeMatch: false } ),
         );
     };
@@ -32,6 +34,10 @@ export class AuthFormComponent implements OnInit, OnDestroy {
 
   authForm: FormGroup;
 
+  // Form state
+  loading = false;
+  success = false;
+
   public recentToken: string = '';
   public readonly executionLog: OnExecuteData[] = [];
 
@@ -45,45 +51,46 @@ export class AuthFormComponent implements OnInit, OnDestroy {
     private recaptchaV3Service: ReCaptchaV3Service,
     ) { }
 
-    public executeAction(action: string): void {
-      if (this.singleExecutionSubscription) {
-        this.singleExecutionSubscription.unsubscribe();
-      }
-      this.singleExecutionSubscription = this.recaptchaV3Service.execute(action)
-        .subscribe((token) => this.recentToken = token);
+  public executeAction(action: string): void {
+    if (this.singleExecutionSubscription) {
+      this.singleExecutionSubscription.unsubscribe();
     }
-
-    public ngOnInit() {
-      this.allExecutionsSubscription = this.recaptchaV3Service.onExecute
-        .subscribe((data) => this.executionLog.push(data));
-
-      this.authForm = this.fb.group({
-        code: ['', [
-          Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-          Validators.minLength(6),
-          Validators.maxLength(25),
-          Validators.required,
-          ],
-          CodeValidator.code(this.afs)
-        ],
-      });
-    }
-
-    public ngOnDestroy() {
-      if (this.allExecutionsSubscription) {
-        this.allExecutionsSubscription.unsubscribe();
-      }
-      if (this.singleExecutionSubscription) {
-        this.singleExecutionSubscription.unsubscribe();
-      }
-    }
-
-    public formatToken(token: string): string {
-      if (!token) {
-        return '(empty)';
-      }
-      return `${token.substr(0, 7)}...${token.substr(-7)}`;
-    }
-
-    get code() { return this.authForm.get('code'); }
+    this.singleExecutionSubscription = this.recaptchaV3Service.execute(action)
+      .subscribe((token) => this.recentToken = token);
   }
+
+  ngOnInit() {
+    this.allExecutionsSubscription = this.recaptchaV3Service.onExecute
+      .subscribe((data) => this.executionLog.push(data));
+
+    this.authForm = this.fb.group({
+      code: ['', [
+        Validators.required,
+        ],
+        CodeValidator.code(this.afs)
+      ],
+    });
+  }
+
+  public ngOnDestroy() {
+    if (this.allExecutionsSubscription) {
+      this.allExecutionsSubscription.unsubscribe();
+    }
+    if (this.singleExecutionSubscription) {
+      this.singleExecutionSubscription.unsubscribe();
+    }
+  }
+
+  public formatToken(token: string): string {
+    if (!token) {
+      return '(empty)';
+    }
+    return `${token.substr(0, 7)}...${token.substr(-7)}`;
+  }
+
+  get code() { return this.authForm.get('code'); }
+
+  authSummit() {
+    this.success = true;
+  }
+}
