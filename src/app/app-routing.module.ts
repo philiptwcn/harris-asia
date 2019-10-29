@@ -18,6 +18,10 @@ const routes: Routes = [
     loadChildren: './core/modules/lazy-products.module#LazyProductsModule'
   },
   {
+    path: 'series',
+    loadChildren: './core/modules/lazy-series.module#LazySeriesModule'
+  },
+  {
     path: 'about',
     loadChildren: './core/modules/lazy-about.module#LazyAboutModule'
   },

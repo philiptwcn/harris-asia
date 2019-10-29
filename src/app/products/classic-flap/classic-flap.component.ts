@@ -13,8 +13,7 @@ export class ClassicFlapComponent implements OnInit {
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
-    this.contentfulService.getProductsByCategoryName('13a6BP1pNbd2wmT8aFeJAt').then(result =>{
-      this.products = result;
-    });
+    this.contentfulService.getProductsByCategoryName('13a6BP1pNbd2wmT8aFeJAt')
+    .then(products => this.products = products);
   }
 }
