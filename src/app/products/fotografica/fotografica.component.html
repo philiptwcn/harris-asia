@@ -35,8 +35,23 @@
         </p>
     </div>
     <div class="container is-widescreen">
-            <img src="assets/img/page/DSC_2923.jpg" alt="fotografica_back" class="image image2" routerLink="/products/MH2015_GSYPB" style="cursor: pointer">
+        <img src="assets/img/page/DSC_2923.jpg" alt="fotografica_back" class="image image2" routerLink="/products/MH2015_GSYPB" style="cursor: pointer">
     </div>
-    
 </section>
+<div>
+    <div class="container has-text-centered">
+        <ul class="container-fluid columns is-multiline is-vcentered is-mobile">
+            <li *ngFor="let product of products" class="column is-3-desktop is-6-touch">
+                <img src="{{ product.fields.thumbnail.fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
+                <p class="content is-size-5 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
+                <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>
+            </li>
+        </ul>
+    </div>
+    <div style="margin-top: 5rem;">
+        <p class="container line" style="width: 30vw;height: .1rem; background-color: goldenrod;margin-bottom: .5rem;"></p>
+        <p class="container line" style="width: 40vw;height: .1rem; background-color: goldenrod;margin-bottom: .5rem;"></p>
+        <p class="container line" style="width: 25vw;height: .1rem; background-color: goldenrod;margin-bottom: 2rem;"></p>
+    </div>
+</div>
 
