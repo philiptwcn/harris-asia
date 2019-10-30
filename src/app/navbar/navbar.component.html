@@ -9,7 +9,7 @@
     <img src="assets/img/logo_i.svg" width="112" height="28">
   </a>
   <button class="navbar-burger burger button is-black is-marginless has-text-weight-light">
-    <fa-icon [icon]="['fas','award']" class="icon" routerLink='/users/auth' style="padding-right: .5rem">
+    <fa-icon [icon]="['fas','award']" class="icon" routerLink='/users/auth' style="padding-right: .5rem"  *ngIf="auth.user$ | async as user">
       </fa-icon>
   </button>
   <button class="navbar-burger burger button is-black is-marginless has-text-weight-light" style="padding-right: 2rem;">
