@@ -2,7 +2,6 @@ import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 
 
@@ -16,6 +15,10 @@ const routes: Routes = [
   {
     path: 'allProducts',
     loadChildren: './core/modules/lazy-products.module#LazyProductsModule'
+  },
+  {
+    path: 'details',
+    loadChildren: './core/modules/lazy-detail.module#LazyDetailModule'
   },
   {
     path: 'series',
@@ -40,10 +43,6 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: './core/modules/form.module#FormModule'
-  },
-  {
-    path: 'products/:slug',
-    component: ProductDetailComponent,
   },
   {
     path: '**',

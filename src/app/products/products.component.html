@@ -10,13 +10,15 @@
 <section class="section">
     <div class="container has-text-centered">
         <ul class="container-fluid columns is-multiline is-vcentered is-mobile">
-            <li *ngFor="let product of products; let i = index" class="column is-3-tablet is-6-mobile" [routerLink]="['/products', product.fields.slug]">
-                <div *ngIf="i < 12">
-                    <img src="{{ product.fields.thumbnail.fields.file.url }}" alt="product image" class="image is-primaryis-marginless is-paddingless">
-                <p class="content has-text-weight-bold is-size-6 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
-                <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>  
-                </div>    
-            </li>
+            <ng-container *ngFor="let product of products; let i = index">
+                <li *ngIf="i < 12" class="column is-3-tablet is-6-mobile" [routerLink]="['/details/detail', product.fields.slug]">
+                    <div>
+                        <img src="{{ product.fields.thumbnail.fields.file.url }}" alt="product image" class="image is-primaryis-marginless is-paddingless">
+                    <p class="content has-text-weight-bold is-size-6 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
+                    <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>  
+                    </div>    
+                </li>
+            </ng-container>
         </ul>
     </div>    
 </section>

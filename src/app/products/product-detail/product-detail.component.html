@@ -1,6 +1,32 @@
 <section class="section" *ngIf="product">
-    <app-carousel class="carousel">  
-    </app-carousel>
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="basic"
+    maxWidth="auto"
+    proportion="100"
+    slides="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="true"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr"
+    class="carousel"
+  >
+    <div *ngIf="product">
+      <div *ngIf="product.fields.image">
+        <mat-carousel-slide
+          #matCarouselSlide
+          *ngFor="let image of product.fields.image; let i = index"
+          [image]="image.fields.file.url "
+          overlayColor="#00000040"
+          [hideOverlay]="true"
+        ></mat-carousel-slide>
+      </div>
+    </div>
+  </mat-carousel>
   <div class="columns is-multiline">
     <div class="column is-two-thirds level" *ngIf="product.fields.image">
       <div class="level-item isDesktop" *ngFor="let image of product.fields.image">

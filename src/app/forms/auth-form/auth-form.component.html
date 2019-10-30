@@ -1,4 +1,9 @@
-<section class="hero has-background-white-ter" style="min-height: 72vh;">
+<div style="margin: 3rem 0 3rem 0;">
+    <p class="container line" style="width: 20vw;height: .1rem; background-color: goldenrod;margin-bottom: .5rem;"></p>
+    <p class="container line" style="width: 40vw;height: .1rem; background-color: goldenrod;margin-bottom: .5rem;"></p>
+    <p class="container line" style="width: 30vw;height: .1rem; background-color: goldenrod;margin-bottom: 2rem;"></p>
+</div>
+<section class="hero has-background-white-ter" style="min-height: 72vh; padding-top: 5rem;">
     <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
     <ng-template #authenticated>
         <form  [formGroup]="authForm" (ngSubmit)="authSummit()" *ngIf="!success">

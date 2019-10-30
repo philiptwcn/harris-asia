@@ -15,14 +15,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { CarouselComponent } from './carousel/carousel.component';
-
 import { ContentfulService } from './services/contentful.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 
 
@@ -34,8 +30,6 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ProductDetailComponent,
-    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +39,6 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     FontAwesomeModule,
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    MatCarouselModule.forRoot(),
   ],
   exports: [
   ],
