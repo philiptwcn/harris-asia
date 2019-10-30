@@ -1,8 +1,9 @@
-<div class="section container is-family-sans-serif" style="padding-top: 2rem;">
+<div class="section container is-family-sans-serif has-text-centered" style="padding: 2rem 0 1rem 0;">
     <p
     class="has-text-weight-bold is-capitalized is-size-2-desktop is-size-3-touch"
     >your shopping bag</p>
 </div>
+<p class="container line" style="width: 50vw;height: .1rem; background-color: goldenrod;margin-bottom: 2rem;"></p>
 <div class="section has-background-white-ter">
     <div class="columns">
         <div class="column is-1"></div>
@@ -65,7 +66,7 @@
                 </ng-template>
                 <!-- User logged in -->
                 <ng-template #authenticated>
-                        <button class="button is-dark is-capitalized" (click)="toggleModal()" style="margin-top: 3rem">結帳</button>
+                        <button *ngIf="items.length != 0" class="button is-dark is-capitalized" (click)="toggleModal()" style="margin-top: 3rem">結帳</button>
                         <div class="modal" [ngClass]="{ 'is-active' : isModalActive }" style="padding: 3rem">
                             <div class="modal-background" (click)="toggleModal()"></div>
                             <div class="modal-content">
