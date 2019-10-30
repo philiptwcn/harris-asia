@@ -7,13 +7,19 @@
   <a class="navbar-item container" routerLink="" (click)="closeNavbar()">
     <img src="assets/img/logo_i.svg" width="112" height="28">
   </a>
-  <button class="navbar-burger burger button is-black is-marginless has-text-weight-light">
-    <fa-icon [icon]="['fas','award']" class="icon" routerLink='/users/auth' style="padding-right: .5rem">
+  <div class="navbar-burger burger is-marginless has-text-weight-light" disabled>
+    <button class="button is-black ">
+      <fa-icon [icon]="['fas','award']" class="icon" routerLink='/users/auth' style="padding-right: .5rem">
       </fa-icon>
-    <fa-icon [icon]="['fas','shopping-bag']" class="icon" routerLink='/iniusers/cart' style="padding-right: .5rem">
-        </fa-icon>
-    {{items.length}}
-  </button>
+    </button>
+    
+    <button class="button is-black ">
+      <fa-icon [icon]="['fas','shopping-bag']" class="icon" routerLink='/iniusers/cart' style="padding-right: .5rem">
+      </fa-icon>
+      {{items.length}}
+    </button>
+    
+  </div>
 </div>
 <div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">

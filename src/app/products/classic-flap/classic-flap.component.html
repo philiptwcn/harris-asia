@@ -9,7 +9,7 @@
         </p>
     </div>
 </div>
-<section class="section0" routerLink="/products/Harris3113 SheepV_ZDM" style="cursor: pointer"></section>
+<section class="section0" routerLink="/details/detail/Harris3113 SheepV_ZDM" style="cursor: pointer"></section>
 <section class="section1"></section>
 <section>
     <div class="container-fluid has-text-centered container1">
@@ -21,7 +21,7 @@
         </p>
     </div>
     <div>
-        <img src="assets/img/page/DSC_4136.jpg" alt="leopard_head_back" class="image image1" routerLink="/products/Harris3113_ZDM" style="cursor: pointer">
+        <img src="assets/img/page/DSC_4136.jpg" alt="leopard_head_back" class="image image1" routerLink="/details/detail/Harris3113_ZDM" style="cursor: pointer">
     </div>
 </section>
 <section>
@@ -34,14 +34,14 @@
         </p>
     </div>
     <div>
-        <img src="assets/img/page/_DSC4495-02S.jpg" alt="leopard_head_side" class="image image2" routerLink="/products/Harris3113_ZDM" style="cursor: pointer">
+        <img src="assets/img/page/_DSC4495-02S.jpg" alt="leopard_head_side" class="image image2" routerLink="/details/detail/Harris3113_ZDM" style="cursor: pointer">
     </div>
 </section>
 <div>
     <div class="container has-text-centered">
         <ul class="container-fluid columns is-multiline is-vcentered is-mobile">
             <li *ngFor="let product of products" class="column is-3-desktop is-6-touch">
-                <img src="{{ product.fields.thumbnail.fields.file.url }}" [routerLink]="['/products', product.fields.slug]" alt="product image" class="image">
+                <img src="{{ product.fields.thumbnail.fields.file.url }}" [routerLink]="['/details/detail', product.fields.slug]" alt="product image" class="image">
                 <p class="content is-size-5 is-size-6-touch is-family-sans-serif">{{ product.fields.productName }}</p>
                 <p class="content is-size-6 is-size-7-touch is-family-sans-serif">Price: {{ product.fields.price }} $</p>
             </li>
