@@ -1,9 +1,10 @@
 <div class="navbar-brand is-marginless">
-  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" style="float: left;">
+  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" style="padding-left: 2rem;float: left;">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
   </div>
+  <div class="navbar-burger burger is-marginless is-static" style="padding-left: 2rem;float: left;" disabled></div>
   <a class="navbar-item container" routerLink="" (click)="closeNavbar()">
     <img src="assets/img/logo_i.svg" width="112" height="28">
   </a>
