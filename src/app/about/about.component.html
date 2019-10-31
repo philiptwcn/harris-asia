@@ -1,5 +1,10 @@
 <section class="section is-paddingless">
-    <video class="hero" playsinline autoplay muted loop width="100%" *ngIf="asset">
+    <video
+        class="hero"
+        playsinline autoplay muted loop
+        width="100%"
+        *ngIf="asset"    
+        poster="../assets/img/about/about_main.jpg">
         <source src="{{'https:' + asset.fields.file.url}}" type="video/mp4" />
     </video>
 </section>
