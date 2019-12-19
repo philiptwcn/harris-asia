@@ -11,7 +11,7 @@
             <div class="box columns is-multiline is-mobile is-vcentered" *ngFor="let item of items; let i = index" style="margin-top: 2rem;">
                 <p
                 class="column is-12 is-size-5 has-text-weight-bold "
-                [routerLink]="['/products', item.fields.slug]"
+                [routerLink]="['/details/detail', item.fields.slug]"
                 style="cursor: pointer;">
                     {{ item.fields.productName }}
                 </p>
