@@ -12,7 +12,8 @@ const DEFAULT_CONFIG = {
     product: 'product',
     category: 'category',
     newStoriesImage: 'newStoriesImage',
-    video: 'video'
+    video: 'video',
+    homeHeroCarousel: 'homeHeroCarousel',
   }
 };
 
@@ -84,6 +85,15 @@ export class ContentfulService {
   getNewStoriesImage(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: DEFAULT_CONFIG.contentTypeIds.newStoriesImage,
+      order: '-sys.createdAt'
+    }, query))
+    .then(res => res.items);
+  }
+
+  // fetch homeHeroCarousel
+  gethomeHeroCarousel(query?: object): Promise<Entry<any>[]> {
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: DEFAULT_CONFIG.contentTypeIds.homeHeroCarousel,
       order: '-sys.createdAt'
     }, query))
     .then(res => res.items);

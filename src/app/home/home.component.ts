@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../services/contentful.service';
-import { Asset } from 'contentful';
+import { Asset, Entry } from 'contentful';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +9,15 @@ import { Asset } from 'contentful';
 })
 export class HomeComponent implements OnInit {
   asset: Asset;
+  homeHeroCarousel: Entry<any>[];
 
   constructor(private contentfulService: ContentfulService) { }
 
   ngOnInit() {
     this.contentfulService.cdaClient.getAsset('5QOKNZjkrPgyAmSGB3nMXo')
     .then(asset => this.asset = asset);
+    this.contentfulService.gethomeHeroCarousel()
+    .then(homeHeroCarousel => this.homeHeroCarousel = homeHeroCarousel);
   }
 
 }

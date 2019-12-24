@@ -19,6 +19,8 @@ import { ContentfulService } from './services/contentful.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { environment } from '../environments/environment';
     FontAwesomeModule,
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    MatCarouselModule,
   ],
   exports: [
   ],
