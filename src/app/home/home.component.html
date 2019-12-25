@@ -12,16 +12,40 @@
     poster="../assets/img/home/home_main.jpg"
   >
     <source src="{{'https:' + asset.fields.file.url}}" type="video/mp4" />
-  </video>-->
-  <div class="hero"></div>
-  <img src="../assets/img/home/home-hero-1.jpg" alt="" style="position: fixed; z-index: -2; padding-top: 0vh; display: flex;">
-  <div>
-    <p class="title has-text-centered is-size-3-tablet is-size-5-mobile is-family-sans-serif has-text-white has-text-weight-light">
-      ENTER THE NEW ERA OF FASHION<br>
-      <button class="button is-black is-family-sans-serif" style="margin-top: 2rem;" routerLink="/allProducts/products">Shop this season</button>
-    </p>
-    
-  </div>
+  </video>
+  <img src="../assets/img/home/home-hero-1.jpg" alt="" style="position: fixed; z-index: -2; padding-top: 0vh; display: flex;">-->
+  <mat-carousel
+    timings="250ms ease-in"
+    [autoplay]="true"
+    interval="5000"
+    color="basic"
+    maxWidth="auto"
+    proportion="60"
+    slides="5"
+    [loop]="true"
+    [hideArrows]="false"
+    [hideIndicators]="false"
+    [useKeyboard]="true"
+    [useMouseWheel]="false"
+    orientation="ltr"
+    class="carousel"
+  >
+    <div  *ngFor="let hero of homeHeroCarousel">
+      <div>
+        <mat-carousel-slide
+          #matCarouselSlide
+          [image]="hero.fields.homeHeroImage.fields.file.url"
+          overlayColor="#00000040"
+          [hideOverlay]="true"
+        >
+          <p class="title has-text-centered is-size-3-tablet is-size-5-mobile is-family-sans-serif has-text-white has-text-weight-light">
+            {{ hero.fields.subTitle }}<br>
+            <button class="button is-black is-family-sans-serif" style="margin-top: 2rem;" routerLink="/tests/test">{{ hero.fields.buttonText }}</button>
+          </p>
+        </mat-carousel-slide>
+      </div>
+    </div>
+  </mat-carousel>
 </div>
 <div class="isMobile">
     <p class="container" style="width: 15vw;height: .1rem; background-color: goldenrod; margin-top: .5rem; margin-bottom: .5rem;"></p>

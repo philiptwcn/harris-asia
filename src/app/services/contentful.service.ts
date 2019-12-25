@@ -94,7 +94,7 @@ export class ContentfulService {
   gethomeHeroCarousel(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: DEFAULT_CONFIG.contentTypeIds.homeHeroCarousel,
-      order: '-sys.createdAt'
+      order: '-sys.updatedAt'
     }, query))
     .then(res => res.items);
   }
