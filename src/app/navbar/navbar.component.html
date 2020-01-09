@@ -6,67 +6,67 @@
   </div>
   <div class="navbar-burger burger is-marginless is-invisible" style="padding-left: 2rem;float: left;"></div>
   <a class="navbar-item container" routerLink="" (click)="closeNavbar()">
-    <img src="assets/img/logo_i.svg" width="112" height="28">
+    <img src="assets/img/logo.svg" width="112" height="28">
   </a>
-  <button class="navbar-burger burger button is-black is-marginless has-text-weight-light">
+  <button class="navbar-burger burger button is-white is-marginless has-text-weight-light">
     <fa-icon [icon]="['fas','award']" class="icon" routerLink='/users/auth' style="padding-right: .5rem"  *ngIf="auth.user$ | async as user">
       </fa-icon>
   </button>
-  <button class="navbar-burger burger button is-black is-marginless has-text-weight-light" style="padding-right: 2rem;">
+  <button class="navbar-burger burger button is-white is-marginless has-text-weight-light" style="padding-right: 2rem;">
     <fa-icon [icon]="['fas','shopping-bag']" class="icon" routerLink='/iniusers/cart' style="padding-right: .5rem">
         </fa-icon>
     {{items.length}}
   </button>
 </div>
-<div class="navbar-menu has-background-black" #navMenu (click)="toggleNavbar()">
+<div class="navbar-menu" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
-    <a class="navbar-item has-text-white" routerLink="about/aboutus">
+    <a class="navbar-item has-text-" routerLink="about/aboutus">
       關於我們
     </a>
-    <a class="navbar-item has-text-white" routerLink="leather/technique">
-      精湛工藝
+    <a class="navbar-item has-text-" routerLink="leather/technique">
+      義大利製造
     </a>
 
     <div class="navbar-item has-dropdown is-hoverable" (click)="toggleDrop()">
-      <a class="navbar-link is-arrowless has-text-white" routerLink="/allProducts/products">
+      <a class="navbar-link is-arrowless has-text-" routerLink="/allProducts/products">
         商品
       </a>
 
-      <div class="navbar-dropdown has-background-black" #drop>
-        <a class="navbar-item has-text-white" routerLink="series/fotografica" (click)="toggleDrop()">
+      <div class="navbar-dropdown" #drop>
+        <a class="navbar-item has-text-" routerLink="series/fotografica" (click)="toggleDrop()">
             SnapShot 相機包
         </a>
-        <a class="navbar-item has-text-white" routerLink="series/classic-flap">
+        <a class="navbar-item has-text-" routerLink="series/classic-flap">
             Leopard 口蓋包
         </a>
         <hr class="navbar-divider">
-        <a class="navbar-item has-text-white" routerLink="allProducts/handbags">
+        <a class="navbar-item has-text-" routerLink="allProducts/handbags">
           HandBag 手拿包
         </a>
-        <a class="navbar-item has-text-white" routerLink="allProducts/minibox">
+        <a class="navbar-item has-text-" routerLink="allProducts/minibox">
           MiniBox 方包
         </a>
-        <a class="navbar-item has-text-white" routerLink="allProducts/crossbody">
+        <a class="navbar-item has-text-" routerLink="allProducts/crossbody">
           CrossBody 側背包
         </a>
-        <a class="navbar-item has-text-white" routerLink="allProducts/tote">
+        <a class="navbar-item has-text-" routerLink="allProducts/tote">
           Tote 托特包
         </a>
-        <a class="navbar-item has-text-white" routerLink="allProducts/wallet">
+        <a class="navbar-item has-text-" routerLink="allProducts/wallet">
           Wallet 銀包
         </a>
         <hr class="navbar-divider">
-        <a class="navbar-item has-text-white">
+        <a class="navbar-item has-text-">
           Sale 特價品
         </a>
       </div>
     </div>
-    <a class="navbar-item has-text-white" routerLink="stories/story">
+    <a class="navbar-item has-text-" routerLink="stories/story">
       最新消息
     </a>
   </div>
   <a class="navbar-item logo" routerLink="" style="margin-left: auto; margin-right: auto;">
-    <img src="assets/img/logo_i.svg" width="112" height="28">
+    <img src="assets/img/logo.svg" width="200" height="50">
   </a>
   <div class="navbar-end">
     <div *ngIf="auth.user$ | async; then authenticated else guest">
@@ -75,7 +75,7 @@
     <!-- User NOT logged in -->
     <ng-template #guest>
       <div class="navbar-item">
-        <button class="button is-black" routerLink='/iniusers/cart'>
+        <button class="button is-white" routerLink='/iniusers/cart'>
           <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
               </fa-icon>{{items.length}}</button>
       </div>
@@ -95,11 +95,11 @@
     <ng-template #authenticated>
       <div *ngIf="auth.user$ | async as user">
         <div class="navbar-item is-family-sans-serif">
-          <p class="has-text-white">嗨， {{ user.displayName }}</p>
+          <p class="has-text-">嗨， {{ user.displayName }}</p>
           <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
-          <button class="button is-black" routerLink='/users/auth'><fa-icon [icon]="['fas','award']" class="icon is-small" style="padding-right: .5rem">
+          <button class="button is-" routerLink='/users/auth'><fa-icon [icon]="['fas','award']" class="icon is-small" style="padding-right: .5rem">
           </fa-icon></button>
-          <button class="button is-black" routerLink='/iniusers/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+          <button class="button is-" routerLink='/iniusers/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
             </fa-icon>{{items.length}}</button>
           <!--<p>UID: {{ user.uid }}</p>-->
           <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
