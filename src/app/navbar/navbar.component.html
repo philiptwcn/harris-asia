@@ -65,8 +65,8 @@
       最新消息
     </a>
   </div>
-  <a class="navbar-item logo" routerLink="" style="margin-left: auto; margin-right: auto;">
-    <img src="assets/img/logo.svg" width="200" height="50">
+  <a class="logo" routerLink="" style="margin-left: auto; margin-right: auto; padding: 2vh 0 2vh 0;">
+    <img class="image" src="assets/img/logo.svg" width="120">
   </a>
   <div class="navbar-end">
     <div *ngIf="auth.user$ | async; then authenticated else guest">
@@ -82,10 +82,10 @@
         <div class="navbar-item">
           <div class="buttons">
             
-            <a class="button is-dark" routerLink="users/login">
+            <a class="button is-white" routerLink="users/login">
               登錄
             </a>
-            <a class="button is-light" routerLink="iniusers/register">
+            <a class="button is-white" routerLink="iniusers/register">
               <strong>註冊</strong>
             </a>
           </div>
@@ -93,17 +93,22 @@
     </ng-template>
     <!-- User logged in -->
     <ng-template #authenticated>
-      <div *ngIf="auth.user$ | async as user">
-        <div class="navbar-item is-family-sans-serif">
-          <p class="has-text-">嗨， {{ user.displayName }}</p>
-          <img class="image is-32x32" [ngClass]="{' is-rounded': true}" [src]="user.photoURL" style="margin:.5rem">
-          <button class="button is-" routerLink='/users/auth'><fa-icon [icon]="['fas','award']" class="icon is-small" style="padding-right: .5rem">
-          </fa-icon></button>
-          <button class="button is-" routerLink='/iniusers/cart'><fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-            </fa-icon>{{items.length}}</button>
-          <!--<p>UID: {{ user.uid }}</p>-->
-          <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">登出</button>
-        </div>
+      <div *ngIf="auth.user$ | async as user" class="navbar-item is-family-sans-serif">
+        <p class="has-text-">嗨， {{ user.displayName }}</p>
+        <img class="image is-32x32 is-rounded"[src]="user.photoURL" style="margin:.5rem">
+        <button class="button is-white" routerLink='/users/auth'>
+          <fa-icon [icon]="['fas','award']" class="icon is-small">
+            </fa-icon>
+        </button>
+        <button class="button is-white" routerLink='/iniusers/cart'>
+          <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
+            </fa-icon>
+          {{items.length}}
+        </button>
+        <!--<p>UID: {{ user.uid }}</p>-->
+        <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">
+          登出
+        </button>
       </div>
     </ng-template>
   </div>
