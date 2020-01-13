@@ -96,6 +96,9 @@
       <div *ngIf="auth.user$ | async as user" class="navbar-item is-family-sans-serif">
         <p class="has-text-">嗨， {{ user.displayName }}</p>
         <img class="image is-32x32 is-rounded"[src]="user.photoURL" style="margin:.5rem">
+        <a class="button is-white" href="https://harris-mag-2020.netlify.com/" target="_blank">
+          雜誌
+        </a>
         <button class="button is-white" routerLink='/users/auth'>
           <fa-icon [icon]="['fas','award']" class="icon is-small">
             </fa-icon>
