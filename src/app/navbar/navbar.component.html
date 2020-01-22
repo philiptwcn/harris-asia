@@ -1,4 +1,4 @@
-<div class="navbar-brand is-marginless">
+<div class="navbar-brand is-marginless" style="background-color: transparent;">
   <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" style="padding-left: 2rem;float: left;">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
@@ -20,49 +20,49 @@
 </div>
 <div class="navbar-menu" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
-    <a class="navbar-item has-text-" routerLink="about/aboutus">
-      關於我們
+    <a class="navbar-item" routerLink="about/aboutus">
+      始於1913
     </a>
-    <a class="navbar-item has-text-" routerLink="leather/technique">
+    <a class="navbar-item" routerLink="leather/technique">
       義大利製造
     </a>
 
     <div class="navbar-item has-dropdown is-hoverable" (click)="toggleDrop()">
-      <a class="navbar-link is-arrowless has-text-" routerLink="/allProducts/products">
-        商品
+      <a class="navbar-link is-arrowless" routerLink="/allProducts/products">
+        手袋總覽
       </a>
 
       <div class="navbar-dropdown is-boxed" #drop>
-        <a class="navbar-item has-text-" routerLink="series/fotografica" (click)="toggleDrop()">
+        <a class="navbar-item" routerLink="series/fotografica" (click)="toggleDrop()">
             SnapShot 相機包
         </a>
-        <a class="navbar-item has-text-" routerLink="series/classic-flap">
+        <a class="navbar-item" routerLink="series/classic-flap">
             Leopard 口蓋包
         </a>
         <hr class="navbar-divider">
-        <a class="navbar-item has-text-" routerLink="allProducts/handbags">
+        <a class="navbar-item" routerLink="allProducts/handbags">
           HandBag 手拿包
         </a>
-        <a class="navbar-item has-text-" routerLink="allProducts/minibox">
+        <a class="navbar-item" routerLink="allProducts/minibox">
           MiniBox 方包
         </a>
-        <a class="navbar-item has-text-" routerLink="allProducts/crossbody">
+        <a class="navbar-item" routerLink="allProducts/crossbody">
           CrossBody 側背包
         </a>
-        <a class="navbar-item has-text-" routerLink="allProducts/tote">
+        <a class="navbar-item" routerLink="allProducts/tote">
           Tote 托特包
         </a>
-        <a class="navbar-item has-text-" routerLink="allProducts/wallet">
+        <a class="navbar-item" routerLink="allProducts/wallet">
           Wallet 銀包
         </a>
         <hr class="navbar-divider">
-        <a class="navbar-item has-text-">
+        <a class="navbar-item">
           Sale 特價品
         </a>
       </div>
     </div>
-    <a class="navbar-item has-text-" routerLink="stories/story">
-      最新消息
+    <a class="navbar-item" routerLink="stories/story">
+      品味代言人
     </a>
   </div>
   <a class="logo" routerLink="" style="margin-left: auto; margin-right: auto; padding: 2vh 0 2vh 0;">
@@ -77,7 +77,9 @@
       <div class="navbar-item">
         <button class="button is-white" routerLink='/iniusers/cart'>
           <fa-icon [icon]="['fas','shopping-bag']" class="icon is-small" style="padding-right: .5rem">
-              </fa-icon>{{items.length}}</button>
+              </fa-icon>
+            {{items.length}}
+        </button>
       </div>
         <div class="navbar-item">
           <div class="buttons">
