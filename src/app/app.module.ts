@@ -3,10 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
-import { faAward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/modules/core.module';
 
@@ -34,7 +30,6 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule,
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MatCarouselModule,
@@ -47,7 +42,4 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
-    library.addIcons(faShoppingBag, faAward);
-  }
 }

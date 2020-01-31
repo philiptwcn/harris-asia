@@ -45,10 +45,6 @@ const routes: Routes = [
     loadChildren: './core/modules/form.module#FormModule'
   },
   {
-    path: 'tests',
-    loadChildren: './core/modules/lazy-test.module#LazyTestModule'
-  },
-  {
     path: '**',
     redirectTo: '/home',
     pathMatch: 'full'

@@ -2,18 +2,7 @@
     <p class="container line" style="width: 30vw;height: .1rem; background-color: goldenrod; margin-top: 2rem; margin-bottom: .5rem;"></p>
     <p class="container line" style="width: 40vw;height: .1rem; background-color: goldenrod;margin-bottom: .5rem;"></p>
     <p class="container line" style="width: 25vw;height: .1rem; background-color: goldenrod;margin-bottom: 2rem;"></p>
-  <!--<video
-    class="hero"
-    preload="metadata"
-    autoplay loop muted playsinline
-    width="100%"
-    *ngIf="asset"
-    style="position: fixed; z-index: -1"
-    poster="../assets/img/home/home_main.jpg"
-  >
-    <source src="{{'https:' + asset.fields.file.url}}" type="video/mp4" />
-  </video>
-  <img src="../assets/img/home/home-hero-1.jpg" alt="" style="position: fixed; z-index: -2; padding-top: 0vh; display: flex;">-->
+  
   <mat-carousel
     timings="250ms ease-in"
     [autoplay]="true"
@@ -30,9 +19,7 @@
     orientation="ltr"
     class="carousel"
   >
-    <div  *ngFor="let hero of homeHeroCarousel">
-      <div>
-        <mat-carousel-slide
+        <mat-carousel-slide *ngFor="let hero of homeHeroCarousel"
           #matCarouselSlide
           [image]="hero.fields.homeHeroImage.fields.file.url"
           overlayColor="#00000040"
@@ -43,8 +30,6 @@
             <button class="button is-black is-family-sans-serif" style="margin-top: 2rem;" routerLink="/allProducts/products">{{ hero.fields.buttonText }}</button>
           </p>
         </mat-carousel-slide>
-      </div>
-    </div>
   </mat-carousel>
 </div>
 <div class="isMobile">
