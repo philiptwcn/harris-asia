@@ -10,25 +10,22 @@ $family-sans-serif: 'Noto Sans TC', sans-serif
 .has-dropdown
     transition: 500
 
-a.navbar-item
-    color: #fcba03,
-    
-    &:hover
-        color: #fcba03
 
-.svg-icon 
+
+/* -----SVG Icons - svgicons.sparkk.fr----- */
+
+.svg-icon
     height: 1.5em
 
 
-.svg-icon path
-.svg-icon polygon
-.svg-icon rect 
+.svg-icon path.svg-icon polygon.svg-icon rect 
     fill: #4691f6
 
 
-.svg-icon circle 
+.svg-icon circle
     stroke: #4691f6
     stroke-width: 1
+
 
 
 @import "~bulma/bulma.sass"
@@ -50,3 +47,10 @@ a.navbar-item
         width: 30vw
     .navbar-end
         width: 30vw
+
+a.navbar-item
+    &:hover
+        color: #d1d1d1
+    &:focus
+        color: #d1d1d1
+        border-bottom: 1rem
