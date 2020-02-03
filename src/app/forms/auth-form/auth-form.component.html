@@ -23,8 +23,13 @@
                         </div>
                         <div class="">
                             <div class="control is-expanded has-icons-left">
-                                    <fa-icon [icon]="['fas','lock']" class="icon is-small is-left">
-                                    </fa-icon>
+                                <span class="icon is-left ">
+                                    <svg class="svg-icon lock" viewBox="0 0 20 20">
+                                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"
+                                        style="stroke:lightgrey;stroke-width:0.5;"
+                                        ></path>
+                                    </svg>
+                                </span>                                    
                                 <input class="input is-rounded" type="code" formControlName="code" required>
                             </div>
                             <!--<div *ngIf="code.invalid && code.dirty" class="label help is-normal is-danger">
@@ -52,7 +57,7 @@
         </form>
         <div *ngIf="success" class="container">
             <div *ngIf="code.valid" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
-                    <svg class="svg-icon" height="20vh" viewBox="0 0 20 20">
+                    <svg class="svg-icon check-circle" height="20vh" viewBox="0 0 20 20">
                         <path d="M10.219,1.688c-4.471,0-8.094,3.623-8.094,8.094s3.623,8.094,8.094,8.094s8.094-3.623,8.094-8.094S14.689,1.688,10.219,1.688 M10.219,17.022c-3.994,0-7.242-3.247-7.242-7.241c0-3.994,3.248-7.242,7.242-7.242c3.994,0,7.241,3.248,7.241,7.242C17.46,13.775,14.213,17.022,10.219,17.022 M15.099,7.03c-0.167-0.167-0.438-0.167-0.604,0.002L9.062,12.48l-2.269-2.277c-0.166-0.167-0.437-0.167-0.603,0c-0.166,0.166-0.168,0.437-0.002,0.603l2.573,2.578c0.079,0.08,0.188,0.125,0.3,0.125s0.222-0.045,0.303-0.125l5.736-5.751C15.268,7.466,15.265,7.196,15.099,7.03"
                         style="fill:MediumSpringGreen;stroke:MediumSpringGreen;stroke-width:1;"
                         ></path>
@@ -62,7 +67,7 @@
                 <div style="height: 80vh; background-image: url(../../assets/img/auth_1-05.jpg); background-repeat: no-repeat; background-position: bottom; background-size: contain;"></div>
             </div>
             <div *ngIf="code.invalid && code.dirty" class="container-fluid has-text-centered is-family-sans-serif" style="margin: 3rem">
-                <svg class="svg-icon" height="20vh" viewBox="0 0 20 20">
+                <svg class="svg-icon times-circle" height="20vh" viewBox="0 0 20 20">
                     <path d="M10.185,1.417c-4.741,0-8.583,3.842-8.583,8.583c0,4.74,3.842,8.582,8.583,8.582S18.768,14.74,18.768,10C18.768,5.259,14.926,1.417,10.185,1.417 M10.185,17.68c-4.235,0-7.679-3.445-7.679-7.68c0-4.235,3.444-7.679,7.679-7.679S17.864,5.765,17.864,10C17.864,14.234,14.42,17.68,10.185,17.68 M10.824,10l2.842-2.844c0.178-0.176,0.178-0.46,0-0.637c-0.177-0.178-0.461-0.178-0.637,0l-2.844,2.841L7.341,6.52c-0.176-0.178-0.46-0.178-0.637,0c-0.178,0.176-0.178,0.461,0,0.637L9.546,10l-2.841,2.844c-0.178,0.176-0.178,0.461,0,0.637c0.178,0.178,0.459,0.178,0.637,0l2.844-2.841l2.844,2.841c0.178,0.178,0.459,0.178,0.637,0c0.178-0.176,0.178-0.461,0-0.637L10.824,10z"
                     style="fill:PaleVioletRed;stroke:PaleVioletRed;stroke-width:1;"
                     >
