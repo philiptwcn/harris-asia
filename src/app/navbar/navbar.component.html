@@ -1,5 +1,5 @@
 <div class="navbar-brand is-marginless" style="background-color: transparent;">
-  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false" style="">
+  <div (click)="toggleNavbar()" role="button" #navBurger class="navbar-burger burger is-marginless" aria-label="menu" aria-expanded="false">
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
     <span aria-hidden="true"></span>
@@ -24,15 +24,15 @@
 </div>
 <div class="navbar-menu" #navMenu (click)="toggleNavbar()">
   <div class="navbar-start">
-    <a class="navbar-item" routerLink="about/aboutus">
+    <div class="navbar-item" routerLink="about/aboutus">
       始於1913
-    </a>
+    </div>
     <a class="navbar-item" routerLink="leather/technique">
       義大利製造
     </a>
 
-    <div class="navbar-item has-dropdown is-hoverable" (click)="toggleDrop()">
-      <a class="navbar-link is-arrowless" routerLink="/allProducts/products">
+    
+      <a class="navbar-item" routerLink="/allProducts/products">
         手袋總覽
       </a>
 
@@ -64,7 +64,6 @@
           Sale 特價品
         </a>
       </div>-->
-    </div>
     <a class="navbar-item" routerLink="stories/story">
       品味代言人
     </a>
@@ -86,17 +85,16 @@
             {{items.length}}
         </button>
       </div>
-        <div class="navbar-item">
-          <div class="buttons">
-            
-            <a class="button is-white" routerLink="users/login">
-              登錄
-            </a>
-            <a class="button is-white" routerLink="iniusers/register">
-              <strong>註冊</strong>
-            </a>
-          </div>
+      <div class="navbar-item">
+        <div class="buttons">            
+          <a class="button is-white" routerLink="users/login">
+            登錄
+          </a>
+          <a class="button is-white" routerLink="iniusers/register">
+            <strong>註冊</strong>
+          </a>
         </div>
+      </div>
     </ng-template>
     <!-- User logged in -->
     <ng-template #authenticated>
@@ -128,8 +126,7 @@
           <svg class="svg-icon user" viewBox="0 0 20 20">
             <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
           </svg>
-        </button>
-        
+        </button>        
         <!--<p>UID: {{ user.uid }}</p>-->
         <button (click)="auth.signOut()" class="button is-dark is-small is-rounded">
           登出
@@ -138,5 +135,4 @@
     </ng-template>
   </div>
 </div>
-<!--Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
 
